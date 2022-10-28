@@ -8,7 +8,7 @@
     android:layout_marginBottom="10dp"
     android:adjustViewBounds="true"
     android:background="?attr/selectableItemBackground"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/noteCard"
@@ -21,7 +21,6 @@
             android:layout_height="match_parent">
 
 
-
             <ImageView
                 android:id="@+id/noteImage"
                 android:layout_width="0dp"
@@ -32,7 +31,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="12" />
+                android:layout_weight="2" />
 
 
             <LinearLayout
@@ -50,12 +49,10 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/noteYear"
-                        android:text="Year"
-                        android:textSize="13sp"
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_master" />
 
 
                     <TextView
@@ -67,7 +64,23 @@
                         android:layout_marginStart="6dp"
                         android:textColor="@color/black" />
 
+                    <TextView
+                        android:id="@+id/noteYear"
+                        android:text="Year"
+                        android:textSize="13sp"
+                        android:layout_marginStart="6dp"
+                        android:textColor="@color/master2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
+                    <TextView
+                        android:id="@+id/noteNum"
+                        android:text="Num"
+                        android:textSize="13sp"
+                        android:textColor="@color/master2"
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <View
@@ -79,19 +92,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="16"
+                    android:layout_marginStart="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/phoneImage"
+                        android:id="@+id/sectorImage"
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_call_olc" />
+                        android:src="@drawable/ic_m_note_hand" />
 
                     <TextView
-                        android:id="@+id/phoneNum"
-                        android:text="PhoneNum"
+                        android:id="@+id/sector"
+                        android:text="Sector"
                         android:textSize="11sp"
                         android:singleLine="true"
                         android:layout_width="match_parent"
@@ -113,6 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="16"
+                    android:layout_marginStart="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -121,7 +136,7 @@
                         android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_email_olc" />
+                        android:src="@drawable/ic_m_note_email" />
 
                     <TextView
                         android:id="@+id/mailAdress"
@@ -146,20 +161,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="16"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/companyImage"
+                        android:id="@+id/phoneImage"
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_work_olc" />
+                        android:src="@drawable/ic_m_note_call" />
 
                     <TextView
-                        android:id="@+id/companyName"
-                        android:text="CompanyName"
+                        android:id="@+id/phoneNum"
+                        android:text="PhoneNum"
                         android:textSize="11sp"
                         android:singleLine="true"
                         android:layout_width="match_parent"
@@ -178,28 +194,28 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="47" />
-<!--            <FrameLayout-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_marginTop="8dp">-->
+            <!--            <FrameLayout-->
+            <!--                android:layout_width="30dp"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:layout_marginTop="8dp">-->
 
-<!--                <androidx.appcompat.widget.AppCompatImageButton-->
-<!--                    android:id="@+id/img1"-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:background="@null"-->
-<!--                    android:src="@drawable/ic_favorite_border"/>-->
-<!--                <androidx.appcompat.widget.AppCompatImageButton-->
-<!--                    android:id="@+id/img2"-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:background="@null"-->
-<!--                    android:src="@drawable/ic_favorite_border"-->
-<!--                    android:visibility="gone"/>-->
+            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
+            <!--                    android:id="@+id/img1"-->
+            <!--                    android:layout_width="30dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/ic_favorite_border"/>-->
+            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
+            <!--                    android:id="@+id/img2"-->
+            <!--                    android:layout_width="30dp"-->
+            <!--                    android:layout_height="30dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/ic_favorite_border"-->
+            <!--                    android:visibility="gone"/>-->
 
 
-<!--            </FrameLayout>-->
-<!--            &lt;!&ndash;            <CheckBox&ndash;&gt;-->
+            <!--            </FrameLayout>-->
+            <!--            &lt;!&ndash;            <CheckBox&ndash;&gt;-->
             <!--                android:id="@+id/noteCheck"-->
             <!--                android:layout_width="30dp"-->
             <!--                android:layout_height="30dp"-->

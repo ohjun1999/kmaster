@@ -19,14 +19,14 @@
             android:id="@+id/inquiry_ing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_group_8789_red"
+            android:src="@drawable/ic_m_inquiry_ing"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/inquiry_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_group_8788_red" />
+            android:src="@drawable/ic_m_inquiry_end" />
 
     </FrameLayout>
 

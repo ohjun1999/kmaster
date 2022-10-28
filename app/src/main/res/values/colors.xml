@@ -82,6 +82,7 @@
     <color name="master3">#1C5CB0</color>
     <color name="master4">#1192CA</color>
     <color name="master5">#1C3DB0</color>
+    <color name="master6">#1F007BC1</color>
     <color name="halfBlack">#80000000</color>
     <color name="birthBlack">#1F000000</color>
 </resources>
