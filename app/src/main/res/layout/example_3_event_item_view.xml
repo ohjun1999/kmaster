@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="66dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="16dp"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:layout_width="5dp"
+        android:background="@color/olcOrange"
+        android:layout_height="match_parent"
+        />
+
+    <TextView
+        android:id="@+id/dateDate"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:textColor="@color/olcOrange"
+        android:gravity="center"
+        android:background="@color/olcDateOrange"/>
+
+
+    <TextView
+        android:id="@+id/daTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="17dp"
+        tools:text="Play football with friends"
+        android:gravity="center_vertical" />
+
+</LinearLayout>

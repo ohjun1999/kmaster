@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_olc_logo_black" />
+
+
+            <LinearLayout
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opinion Leaders Club (이하 OLC)은 우리 사회의 여론형성을 주도하고 있는 오피니언 리더들의 평생교육과 인재양성, 그리고 친목을 위한 고급 커뮤니티입니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\n\n국내 전 언론사와 주요 기업의 간부 및 중견 기업 대표들로 구성되어 있으며 설립 당시 180명의 원우들에서, 1,000여 명이 넘는 원우들로 구성된 한국의 대표적인 오피니언 리더들의 모임으로 자리 잡았습니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\n\nOLC는 2005년 3월 설립 이후, 주기적으로 모임을 가져 이슈를 토론하고 국내외 전문가를 초청하여 학술 행사 등을 개최함으로써 깊이 있는 학문적 연대 모색에 앞섰고 2004년 1월 중견 언론인들로 언론편집분과를 구성하여 OLP Journal을 창간, 오피니언 리더들의 상호 이해를 높이고 경제ㆍ경영 현안에 대한 바람직한 대안들을 칼럼으로 게재하면서 원우들 뿐만 아니라 주요 기업체 및 공공기관에서 많이 읽히고 있는 저널이 되어 현재 지속적으로 발행 하고 있습니다.
+최근엔 OLC 장학금 수여, 무료급식 봉사활동 등을 진행하면서 노블레스 오블리주를 실천하기 위해 노력하고 있습니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\n\nOpinion Leaders Club의 원우는 각계각층에서 중추적 역할을 하며 대한민국이 시장 경제와 기업 경영 분야에 앞서갈 수 있도록 힘쓰고 있습니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\n\n✽ Opinion Leaders Program을 이수하시는 동문은 자동적으로 Opinion Leaders Club의 정회원이 됩니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+<!--                <ImageView-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_explain_bottom"-->
+<!--                    android:scaleType="fitXY"/>-->
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/backWeakGray"
+                android:orientation="vertical"
+                android:layout_marginTop="16sp"
+                android:paddingStart="12dp"
+                android:paddingBottom="12dp"
+                android:paddingEnd="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="7dp"
+                        android:text="OLC 안내"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/olcDateOrange1" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="주소: (04794) 서울특별시 성동구 아차산로 113, 삼진빌딩 9층 OLC 사무국"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="\n전화: 02-6454-2173
+\n이메일: olc@sogang.ac.kr
+\n홈페이지: http://www.olc.or.kr/"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/ic_olc_logo_black" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

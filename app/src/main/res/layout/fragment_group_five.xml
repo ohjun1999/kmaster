@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_olc_logo_black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 1장 총칙"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 1조 (명칭)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 법인의 명칭은 사단법인 “오피니언리더스클럽”(이하 “클럽”이라 한다)이라 하고, 英文으로는 ”Opinion Leaders Club”(약칭 ”OLC”)이라 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 2조 (목적)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="시장경제의 제 기능에 대한 올바른 이해 및 경제현안문제에 대한 해결방안 모색을 위하여 연구조사, 교육 및 홍보활동 등을 하며, 이를 국가정책에 연계시키고자 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 3 조 (사업)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="(본 클럽은 전 조의 목적을 달성하기 위하여 다음과 같은 사업을 수행한다.
+    \n1. 목적 관련 정책에 관한 자료의 수집, 조사, 분석, 연구
+    \n2. 연구결과의 상담, 자문, 자료의 제공, 자료교환
+    \n3. 국내외 전문가 초청 연구 및 학술 행사의 개최
+    \n4. 목적과 관련된 출판물의 발간, 홍보사업
+    \n5. 목적 달성을 위하여 필요한 교육 및 인재양성
+    \n6. 목적과 관련된 각종 용역의 수탁 및 위탁
+    \n7. 기타 목적과 관련된 사업"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 4 조 (사무소)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 본 클럽의 사무소는 서울시에 두고 이사회의 결의로서 국내․외 지역에 연락사무소(또는 지원, 지부 등)를 둘 수 있다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 2장 회원"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 5 조 (회원의 구성)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="회원은 『오피니언 리더스 프로그램』의 수료자로서 본 클럽의 목적에 찬동하는 언론계, 기업계 등 각계의 인사로 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 6 조 (회원의 가입)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 클럽에 가입하고자 하는 자는 회원자격 심사위원회의 추천을 받아 소정의 가입신청서를 제출하고 이사회의 승인을 얻어야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 7 조 (회원의 가입비 및 회비 등)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="가입비 및 회비의 구분, 부과, 징수 및 기타 필요한 사항은 이사회에서 따로 정하는 바에 따른다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 8 조 (회원의 권리의무)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="회원은 본회의 제반활동에 자유로이 참가할 수 있으며 소정의 회비를 납부하여야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 9 조 (회원자격의 소멸)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 회원자격은 다음 각 호의 사유로 소멸한다.
+     \n1. 회원이 서면으로 클럽에 탈퇴를 통고할 때
+     \n2. 사망, 파산선고, 해산 또는 합병에 의한 소멸
+     \n3. 제명"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 10 조 (제명)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="회원 중 본회의 목적에 위배되거나 회원으로서의 품위를 손상시키는 행동이 있을 경우에는 이사회의 결의에 의하여 제명할 수 있다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 3장 회원총회"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 11 조 (회원총회)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 1. 회원총회는 정기총회와 임시총회로 구분된다.
+     \n2. 회원총회는 회원으로 구성하며, 회장이 총회의 의장이 되고 유고시에는 수석부회장, 부회장 중 연장자 순으로 한다.
+     \n3. 정기총회는 매년 1회 회계연도 마감 후 3개월 이내에, 임시총회는 수시로 다음 각 호의 경우에 회장이 이를 소집한다.
+     \n  (1) 이사회에서 필요하다고 인정한 경우
+     \n  (2) 회원의 3분의 1 이상이 총회에 부의할 사항을 명기하여 서면으로 회장에게 요구한 경우
+     \n4. 제 3항의 청구가 있을 때에는 회장은 15일 이내에 총회를 소집하여야 한다.
+     \n5. 총회를 소집하고자 할 때에는 회의 개최 1주간 전에 그 회의일시,장소, 안건 등을 명시하여 회원에게 서면으로 통지하여야 한다. 다만, 긴급을 요하는 경우는 예외로 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 12 조 (동의 사항)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="총회는 이사회에서 의결된 다음 각호의 사항에 대하여 심의한다.
+     \n1. 정관의 변경
+     \n2. 사업계획
+     \n3. 예산과 결산
+     \n4. 임원 선임의 동의
+     \n5. 기타 이사회에서 필요하다고 판단되는 사항"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 13 조 (성원과 의결)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 총회는 출석회원 과반수로서 의결한다. 可否同數인 경우에는 의장이결정한다.
+     \n2. 회원은 대리인에게 총회의 의결권을 위임할 수 있고 대리인은 그 대리권을 증명하는 서류를 제출하여야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 4장 임원"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 14 조 (임 원)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 본 클럽에 다음의 임원을 둔다.
+     \n1. 회장 : 1인
+     \n2. 수석부회장 : 1인
+     \n3. 부회장 : 각 기수 회장 또는 부회장
+     \n4. 운영이사 : 7인 이내(회장 포함)
+     \n5. 사무총장 : 1인
+     \n6. 감사 : 1인"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 15 조 (회장)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 회장은 클럽을 대표하고 클럽 업무를 총괄하며 총회 및 이사회의 의장이 된다.
+     \n2. 회장은 이사회에서 선출하고 그 임기는 2년으로 연임할 수 있다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 16 조 (임원 선임 및 직무)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 수석부회장, 부회장 및 이사는 이사회에서 선임하고, 감사는 회원총회에서 선임한다. 단 이사와 감사는 겸할 수 없다.
+     \n2. 이사는 이사회를 통해 클럽 제반 업무의 중요사항을 심의, 의결한다.
+     \n3. 사무총장은 회장을 보좌하여 클럽의 행정업무를 집행한다.
+     \n4. 감사는 클럽의 사업 및 회계를 감사한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 17 조 (임기 및 보선)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 임원의 임기는 2년으로 한다. 단, 연임할 수 있다.
+     \n2. 임원 중 임기만료 또는 기타의 사유로 결원이 생긴 경우에는 이사회에서 지체없이 선출하여야 하며 보선에 의하여 취임한 임원의 임기는 전임자의 잔임기간으로 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 5장 이사회, 분과위원회"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 18 조 (이사회의 구성 및 의무)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 이사회는 회장, 수석부회장, 부회장, 운영이사 및 사무총장으로 구성하며 회장이 그 의장이 된다.
+     \n2. 감사는 이사회에 출석하여 의견을 제시할 수 있다. 단, 의결권을 가지지 아니한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 19 조 (소집)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 이사회는 회장 또는 수석부회장이 필요하다고 인정할 때 소집한다. 다만 다음 각호에 해당될 때는 회장은 이사회를 소집하여야 한다.
+       \n  가. 재적이사 과반수 이상의 요청이 있을 때
+       \n  나. 감사의 요청이 있을 때
+     \n2. 회장이 이사회를 소집하고자 할 때는 회의  5일전에 회의 목적, 개최일시, 장소를 명시하여 이사회의 구성원 및 감사에게 통지하여야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 20 조 (이사회의 결의)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 이사회는 다음 사항을 심의 결정한다.
+    \n1. 총회에 상정할 의안과 총회에서 위임받은 사항
+    \n2. 정관의 변경에 관한 사항
+    \n3. 임원의 선임에 관한 사항
+    \n4. 사업계획 및 운영에 관한 사항
+    \n5. 예산 및 결산에 관한 사항
+    \n6. 내규의 제정과 개폐에 관한 사항
+    \n7. 기본 재산의 획득과 처분에 관한 사항
+    \n8. 본 사무소 설치에 관한 사항
+    \n9. 해산 및 잔여 재산의 처리에 관한 사항
+    \n10. 기타 클럽 운영에 중요하다고 인정되는 사안으로서 회장 또는 수석 부회장이 부의하는 사항"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 21 조 (이사회의 결의방법)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 이사회는 정관으로 따로 정한 경우를 제외하고는 재적이사 과반수 이상의 출석과 출석이사 과반수의 찬성으로 결정하며 可否同數인 경우에는 의장이 결정한다.
+     \n2. 정관의 변경 및 클럽의 해산에 관하여는 재적이사 3분의 2 이상의 찬성으로 의결한다. 정관의 변경은 주무관청의 사후승인을 받아야 한다.
+     \n3. 이사회의 심의사항이 자신의 이해에 관련되는 이사는 당해 회의에 참석하지 못한다.
+     \n4. 이사는 그가 지명한 대리인에게 의결권을 위임할 수 있으며 대리인은 그 대리권을 증명하는 서류를 제출하여야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 22 조 (분과위원회)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="클럽의 목적달성을 위하여 필요한 때에는 이사회 의결에 의하여 출판위원회 등 분과위원회를 둘 수 있다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 23 조 (의사록)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="이사회는 의사진행을 기재한 의사록을 작성하고 참석이사 2인 이상이 기명날인하여 보존하여야 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 6장 고문 및 자문위원회"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 24 조 (구성)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 1. 클럽의 운영 및 활동을 지도할 수 있는 약간명의 고문 및 자문위원을 둘 수 있다.
+     \n2. 고문 및 자문위원의 자격과 추대는 이사회에서 별도로 정한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 7장 사무국 조직 및 운영"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 25 조 (사무국의 설치)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 클럽의 업무집행을 위하여 사무국을 둔다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 26 조 (사무총장의 선임)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="사무총장은 회장이 임명한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 27 조 (사무국의 구성)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=" 1. 사무국 산하에 클럽의 효과적 업무수행을 위하여 운영위원회를 둔다.
+     \n2. 사무총장은 운영위원회를 주재하며, 운영위원회의 구성 및 업무 등은 이사회에서 결정한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="제 8장 재산과 회계"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 28 조 (재산)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="클럽의 기본자산은 출자금, 기부금, 회원의 가입비, 사업수입 및 기타로써 구성한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 29 조 (경비)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="클럽의 경비는 재산에서 생기는 과실, 기부금, 회원의 가입비, 회비 또는 경비분담금, 사업수입, 보조금 기타의 수입금으로 충당한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 30 조 (회계연도)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 클럽의 회계연도는 매년 1월 1일로부터 12월 31일까지로 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 31 조 (재산의 관리)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1. 본 클럽 재정의 통일적인 운영을 위하여 클럽의 재산은 별도의 계정으로 운영하며, 예산은 이사회의 사전 또는 사후승인을 받아야 한다.
+     \n2. 이사회는 본 클럽 재정을 위하여 내규를 제정할 수 있다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 32 조 (기부금 모금액 및 사용실적 공개)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="매년도 기부금 모금액 및 사용실적은 매 회계연도 결산 후 다음해 3월말까지 인터넷홈페이지를 통해 공개한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 33 조 (해산시 잔여재산의 처리)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 클럽이 해산하는 경우 잔여재산을 국가ㆍ지방자치단체 또는 유사한 목적을 가진 다른 비영리법인에 귀속하도록 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="부칙"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 1 조 (시행일)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="이 정관은 주무관청의 규정에 의거 등록한 후 효력이 발생한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 2 조 (최초의 사업년도)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="클럽의 최초 사업년도는 설립일로부터 당해년도 말까지로 한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 3 조 (최초 임원의 임기)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="최초 임원의 경우 최초의 사업년도는 임기에서 제외한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 4 조 (세부사항)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="본 정관에 언급되지 아니한 세부사항은 이사회의 의결을 거쳐 따로 정한다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="부칙"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="제 1조(시행일) 이 정관은 2007년 10월 18일부터 개정 시행한다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/backWeakGray"
+                android:orientation="vertical"
+                android:layout_marginTop="16sp"
+                android:paddingStart="12dp"
+                android:paddingBottom="12dp"
+                android:paddingEnd="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="7dp"
+                        android:text="OLC 안내"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/olcDateOrange1" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="주소: (04794) 서울특별시 성동구 아차산로 113, 삼진빌딩 9층 OLC 사무국"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="\n전화: 02-6454-2173
+\n이메일: olc@sogang.ac.kr
+\n홈페이지: http://www.olc.or.kr/"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/ic_olc_logo_black" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
