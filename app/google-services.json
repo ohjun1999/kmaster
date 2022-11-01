@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "958847124303",
+    "project_id": "korea-master-firebase",
+    "storage_bucket": "korea-master-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958847124303:android:1976066161aacb30ba3b3a",
+        "android_client_info": {
+          "package_name": "com.moilsurok.kmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958847124303-kfds45fte72mk1tdfbh0ee1t0sm598s8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moilsurok.kmaster",
+            "certificate_hash": "444e72af6023276f0e0fd667ba61ba6d1eef305a"
+          }
+        },
+        {
+          "client_id": "958847124303-i3ho4dcc8dmk6c0e9e2fmos46637vteq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYu0k_jQWBu8EA2eRKZkP2mtUyLbCW1ZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958847124303-i3ho4dcc8dmk6c0e9e2fmos46637vteq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -89,15 +89,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/frYear"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="19"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/frYear"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="19"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold" />-->
 
 
                     <TextView
@@ -173,7 +173,24 @@
 <!--                    android:selectAllOnFocus="true"-->
 <!--                    android:textColor="@color/black"-->
 <!--                    android:textSize="15sp" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="8dp"
+                    android:text="증서번호"
+                    android:textSize="12sp" />
 
+                <TextView
+                    android:id="@+id/frNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -216,14 +233,49 @@
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="8dp"
+                    android:text="분야"
+                    android:textSize="12sp" />
 
+                <TextView
+                    android:id="@+id/frSector1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="8dp"
+                    android:text="직종"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/frSector2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingTop="8dp"
                     android:selectAllOnFocus="true"
-                    android:text="직장"
+                    android:text="소속"
                     android:textSize="12sp" />
 
 
@@ -240,88 +292,88 @@
                     android:textSize="15sp" />
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:text="직위"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:text="직위"-->
+<!--                    android:textSize="12sp" />-->
 
 
-                <EditText
-                    android:id="@+id/frComPosition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/line_radius_3dp"
-                    android:gravity="center_vertical"
-                    android:padding="8dp"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/frComPosition"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="15"-->
+<!--                    android:background="@drawable/line_radius_3dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:selectAllOnFocus="true"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:text="근무처 전화"
-                    android:textSize="12sp" />
-
-
-                <EditText
-                    android:id="@+id/frComNum"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/line_radius_3dp"
-                    android:gravity="center_vertical"
-                    android:padding="8dp"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:text="직장 주소"
-                    android:textSize="12sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:text="근무처 전화"-->
+<!--                    android:textSize="12sp" />-->
 
 
-                <EditText
-                    android:id="@+id/frComAdr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/line_radius_3dp"
-                    android:gravity="center_vertical"
-                    android:padding="8dp"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/frComNum"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="15"-->
+<!--                    android:background="@drawable/line_radius_3dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:selectAllOnFocus="true"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp" />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:text="직장 주소"-->
+<!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:text="팩스"
-                    android:textSize="12sp" />
+
+<!--                <EditText-->
+<!--                    android:id="@+id/frComAdr"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="15"-->
+<!--                    android:background="@drawable/line_radius_3dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:selectAllOnFocus="true"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:text="팩스"-->
+<!--                    android:textSize="12sp" />-->
 
 
-                <EditText
-                    android:id="@+id/frComFax"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="15"
-                    android:background="@drawable/line_radius_3dp"
-                    android:gravity="center_vertical"
-                    android:padding="8dp"
-                    android:selectAllOnFocus="true"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/frComFax"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="15"-->
+<!--                    android:background="@drawable/line_radius_3dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:selectAllOnFocus="true"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp" />-->
 
 
             </LinearLayout>
