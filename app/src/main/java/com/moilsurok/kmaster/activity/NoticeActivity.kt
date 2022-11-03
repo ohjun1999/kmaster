@@ -45,24 +45,24 @@ class NoticeActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.getDrawer.setOnClickListener {
-            binding.layout.openDrawer((GravityCompat.END))
-
-        }
-        binding.goAlbum.setOnClickListener {
-            val intent = Intent(this, AlbumActivity::class.java)
-            startActivity(intent)
-            binding.layout.closeDrawer((GravityCompat.END))
-
-        }
-        binding.goGiveHome.setOnClickListener {
-            var intent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("http://www.olc.or.kr/bbs/board.php?code=fund_04&bo_table=fund_04")
-            )
-            startActivity(intent)
-            binding.layout.closeDrawer((GravityCompat.END))
-        }
+//        binding.getDrawer.setOnClickListener {
+//            binding.layout.openDrawer((GravityCompat.END))
+//
+//        }
+//        binding.goAlbum.setOnClickListener {
+//            val intent = Intent(this, AlbumActivity::class.java)
+//            startActivity(intent)
+//            binding.layout.closeDrawer((GravityCompat.END))
+//
+//        }
+//        binding.goGiveHome.setOnClickListener {
+//            var intent = Intent(
+//                Intent.ACTION_VIEW,
+//                Uri.parse("http://www.olc.or.kr/bbs/board.php?code=fund_04&bo_table=fund_04")
+//            )
+//            startActivity(intent)
+//            binding.layout.closeDrawer((GravityCompat.END))
+//        }
 
     }
 

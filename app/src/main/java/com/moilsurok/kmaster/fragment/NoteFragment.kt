@@ -83,11 +83,16 @@ class NoteFragment : Fragment() {
         // 검색 옵션 변수
         var searchOption = "name"
         // 스피너 옵션에 따른 동작
-        binding.spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 when (binding.spinner.getItemAtPosition(position)) {
                     "이름" -> {
                         searchOption = "name"
@@ -484,15 +489,19 @@ class NoteFragment : Fragment() {
 
 
                                     }
-                                    lastVisible =
-                                        result.documents[result.size() - 1]
-                                    next = db
-                                        .collection("User")
-                                        .orderBy("year", Query.Direction.ASCENDING)
-                                        .orderBy("name", Query.Direction.ASCENDING)
-                                        .startAfter(lastVisible)
-                                        .limit(7)
-                                    noteAdapter.notifyDataSetChanged()
+                                    if (lastVisible != null) {
+
+
+                                        lastVisible =
+                                            result.documents[result.size() - 1]
+                                        next = db
+                                            .collection("User")
+                                            .orderBy("year", Query.Direction.ASCENDING)
+                                            .orderBy("name", Query.Direction.ASCENDING)
+                                            .startAfter(lastVisible)
+                                            .limit(7)
+                                        noteAdapter.notifyDataSetChanged()
+                                    }
                                 }
 
                         } else if (lastVisibleItemPosition == itemTotalCount && result.size() < 0) {

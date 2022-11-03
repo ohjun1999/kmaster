@@ -87,7 +87,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/olcBlue"/>
+            android:background="@color/master2"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -209,7 +209,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/olcBlue"/>
+            android:background="@color/master2"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -370,7 +370,7 @@
         android:id="@+id/goInfo"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/olcBlue"
+        android:background="@color/master2"
         android:padding="8dp"
         android:text="동의하기"
         android:textColor="@color/white"

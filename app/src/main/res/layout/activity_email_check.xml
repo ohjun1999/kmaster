@@ -61,7 +61,7 @@
         android:id="@+id/hideBtn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/olcBlue"
+        android:background="@color/master2"
 
         android:padding="8dp"
         android:text="이메일 숨기기"

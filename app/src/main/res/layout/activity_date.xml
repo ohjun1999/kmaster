@@ -58,7 +58,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="단체일정"
+                            android:text="행사일정"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />

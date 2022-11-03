@@ -31,7 +31,7 @@ class FirstActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else { // SharedPreferences 안에 값이 저장되어 있을 때 -> SimplePassword2Activity로 이동
-                val intent = Intent(this, AuthCheckActivity::class.java)
+                val intent = Intent(this, SimplePassword2Activity::class.java)
                 startActivity(intent)
 
                 finish()

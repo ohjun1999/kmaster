@@ -173,7 +173,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/goAgree"
         android:layout_width="match_parent"
-        android:background="@color/olcBlue"
+        android:background="@color/master2"
         android:text="확인"
         android:textColor="@color/white"
         android:textSize="20sp"

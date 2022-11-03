@@ -21,10 +21,7 @@
             android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Kmaster2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".activity.PasswordChangeActivity"
@@ -58,9 +55,11 @@
         <activity
             android:name=".activity.FirstActivity"
             android:exported="true"
-
             android:launchMode="singleTop">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.SimplePasswordActivity"

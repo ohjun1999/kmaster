@@ -117,13 +117,31 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.moilsurok.shop/"))
 //            startActivity(intent)
 //        }
+        binding.goLabor.setOnClickListener {
+            var intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.moel.go.kr/index.do")
+            )
+            startActivity(intent)
+        }
+        binding.goHomePage.setOnClickListener {
+            var intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://kmasterhand.or.kr/")
+            )
+            startActivity(intent)
+
+        }
 
 
         var deEvent: ArrayList<EventDataClass> = arrayListOf()
         val today = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM")
+        val formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val formatted = today.toString().format(formatter)
+        val formatted2 = today.toString().format(formatter2)
 
+        binding.todayText.text = formatted2.substring(5,7) + "월 " + formatted2.substring(8,10) + "일"
         val first =
             db
                 

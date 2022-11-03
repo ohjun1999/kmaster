@@ -190,7 +190,7 @@ class AuthenticationInfoActivity : AppCompatActivity() {
         var company: String
         var year: String
         var birthdate: String
-        var phoneNum: String
+        var phoneNum : ArrayList<String>
         var email: String
         var department: String
         var comPosition: String
@@ -202,7 +202,7 @@ class AuthenticationInfoActivity : AppCompatActivity() {
         var bookMark: String
         val logPhoneNum = binding.inputPhoneNum.text.toString()
         val login = db
-            .collection("User").whereEqualTo("phoneNum", logPhoneNum)
+            .collection("User").whereArrayContains("phoneNum", logPhoneNum)
         login
             .get()
             //IF문 사용해서 빈값을 받아왔을 때 실패 메시지 document를 받아왔을 때 액티비티 이동
@@ -221,7 +221,7 @@ class AuthenticationInfoActivity : AppCompatActivity() {
                         company = document.getString("company").toString()
                         year = document.get("year").toString()
                         birthdate = document.getString("birthdate").toString()
-                        phoneNum = document.getString("phoneNum").toString()
+                        phoneNum = document.get("phoneNum") as ArrayList<String>
                         email = document.getString("email").toString()
                         department = document.getString("department").toString()
                         comPosition = document.getString("comPosition").toString()
@@ -247,7 +247,7 @@ class AuthenticationInfoActivity : AppCompatActivity() {
                         intent.putExtra("name", name)
                         intent.putExtra("year", year)
                         intent.putExtra("birthdate", birthdate)
-                        intent.putExtra("phoneNum", phoneNum)
+                        intent.putExtra("phoneNum", phoneNum.toString())
                         intent.putExtra("email", email)
                         intent.putExtra("department", department)
                         intent.putExtra("comPosition", comPosition)

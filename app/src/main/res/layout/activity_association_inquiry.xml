@@ -20,7 +20,7 @@
             android:id="@+id/backKey"
             android:layout_width="20dp"
             android:layout_height="match_parent"
-            android:background="@color/olcBlue"
+            android:background="@color/master2"
             android:src="@drawable/ic_back_sharp" />
 
 
@@ -38,7 +38,7 @@
         <ImageButton
             android:layout_width="20dp"
             android:layout_height="match_parent"
-            android:background="@color/olcBlue"/>
+            android:background="@color/master2"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -59,7 +59,7 @@
         android:textSize="15sp"
         android:gravity="center"
         android:padding="12dp"
-        android:background="@color/olcBlue"
+        android:background="@color/master2"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textColor="@color/white"/>
 
