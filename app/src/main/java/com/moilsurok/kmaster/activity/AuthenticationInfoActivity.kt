@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.moilsurok.kmaster.MySharedPreferences
 import java.util.concurrent.TimeUnit
 
 class AuthenticationInfoActivity : AppCompatActivity() {
@@ -240,7 +241,7 @@ class AuthenticationInfoActivity : AppCompatActivity() {
                             db.collection("teams").document("PA9LiTPH9WiBzSbizAPg")
                                 .collection("User").document(id).update("userCheck", "O")
                         }
-
+                        MySharedPreferences.setUserId(this, logPhoneNum.toString())
                         val intent = Intent(this, AuthConfirmInfoActivity::class.java)
                         intent.putExtra("content", "원하는 데이터를 보냅니다.")
                         intent.putExtra("company", company)

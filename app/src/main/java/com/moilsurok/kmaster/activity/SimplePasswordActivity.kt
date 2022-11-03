@@ -121,7 +121,6 @@ class SimplePasswordActivity : AppCompatActivity() {
                         Toast.makeText(this, "모든 비밀번호가 입력 되지 않았습니다.", Toast.LENGTH_SHORT).show()
 
                     } else {
-                        MySharedPreferences.setUserId(this, phoneNum.toString())
                         MySharedPreferences.setUserPass(this, inputedPassword())
                         MySharedPreferences.setUid(this, id.toString())
                         MySharedPreferences.setYear(this, year.toString())
