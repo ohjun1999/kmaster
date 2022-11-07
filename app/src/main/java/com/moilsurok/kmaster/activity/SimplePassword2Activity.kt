@@ -118,14 +118,11 @@ class SimplePassword2Activity : AppCompatActivity() {
                         var name: String
                         var company: String
                         var year: String
-                        var birthdate: String
-                        var phoneNum : ArrayList<String>
+                        var phoneNum : String
                         var email: String
-                        var department: String
-                        var comPosition: String
-                        var comTel: String
-                        var comAdr: String
-                        var faxNum: String
+                        var field: String
+                        var occupation: String
+                        var num: String
                         var id: String
                         var bookMark: String
                         val tehNum = MySharedPreferences.getUserPass(this)
@@ -143,14 +140,11 @@ class SimplePassword2Activity : AppCompatActivity() {
                                     name = document.getString("name").toString()
                                     company = document.getString("company").toString()
                                     year = document.get("year").toString()
-                                    birthdate = document.getString("birthdate").toString()
-                                    phoneNum = document.get("phoneNum") as ArrayList<String>
+                                    phoneNum = document.get("phoneNum").toString().replace("[","").replace("]","")
                                     email = document.getString("email").toString()
-                                    department = document.getString("department").toString()
-                                    comPosition = document.getString("comPosition").toString()
-                                    comTel = document.getString("comTel").toString()
-                                    comAdr = document.getString("comAdr").toString()
-                                    faxNum = document.getString("faxNum").toString()
+                                    field = document.getString("field").toString()
+                                    occupation = document.getString("occupation").toString()
+                                    num = document.getString("num").toString()
                                     bookMark = document.get("bookmark").toString()
                                     MySharedPreferences.setUid(this, id.toString())
                                     MySharedPreferences.setYear(this, year.toString())
@@ -159,14 +153,11 @@ class SimplePassword2Activity : AppCompatActivity() {
                                     intent.putExtra("company", company)
                                     intent.putExtra("name", name)
                                     intent.putExtra("year", year)
-                                    intent.putExtra("birthdate", birthdate)
                                     intent.putExtra("phoneNum", phoneNum)
                                     intent.putExtra("email", email)
-                                    intent.putExtra("department", department)
-                                    intent.putExtra("comPosition", comPosition)
-                                    intent.putExtra("comTel", comTel)
-                                    intent.putExtra("comAdr", comAdr)
-                                    intent.putExtra("faxNum", faxNum)
+                                    intent.putExtra("field", field)
+                                    intent.putExtra("occupation", occupation)
+                                    intent.putExtra("num", num)
                                     intent.putExtra("id", id)
                                     intent.putExtra("bookMark", bookMark)
                                     Log.d("SActivity", logPhoneNum)

@@ -348,7 +348,7 @@ class NoteFragment : Fragment() {
         val theUid = MySharedPreferences.getUid(requireContext())
         var UserList = arrayListOf<UserDataClass>()
         db
-            .collection("User").whereEqualTo("sector", sector)
+            .collection("User").whereEqualTo("field", sector)
             .orderBy("year", Query.Direction.ASCENDING)
             .orderBy("num", Query.Direction.ASCENDING).limit(7)
             .get().addOnSuccessListener { result ->
@@ -369,7 +369,7 @@ class NoteFragment : Fragment() {
 
                 var lastVisible = result.documents[result.size() - 1]
                 var next =
-                    db.collection("User").whereEqualTo("sector", sector)
+                    db.collection("User").whereEqualTo("field", sector)
                         .orderBy("year", Query.Direction.ASCENDING)
                         .orderBy("num", Query.Direction.ASCENDING)
                         .startAfter(lastVisible)
@@ -404,7 +404,7 @@ class NoteFragment : Fragment() {
                                             result.documents[result.size() - 1]
 
                                         next =
-                                            db.collection("User").whereEqualTo("sector", sector)
+                                            db.collection("User").whereEqualTo("field", sector)
                                                 .orderBy("year", Query.Direction.ASCENDING)
                                                 .orderBy("num", Query.Direction.ASCENDING)
                                                 .startAfter(lastVisible)

@@ -26,20 +26,19 @@ class AuthConfirmInfoActivity : AppCompatActivity() {
         val occupation = intent.getStringExtra("occupation")
         val num = intent.getStringExtra("num")
         val files = intent.getStringExtra("files")
-        val department = intent.getStringExtra("department")
-        val comPosition = intent.getStringExtra("comPosition")
         val id = intent.getStringExtra("id")
 
         binding.goPass.setOnClickListener {
             val intent = Intent(this, SimplePasswordActivity::class.java)
             intent.putExtra("content", "원하는 데이터를 보냅니다.")
-            intent.putExtra("company", company)
+            intent.putExtra("num", num)
             intent.putExtra("name", name)
             intent.putExtra("year", year)
             intent.putExtra("phoneNum", phoneNum)
             intent.putExtra("email", email)
-            intent.putExtra("department", department)
-            intent.putExtra("comPosition", comPosition)
+            intent.putExtra("occupation", occupation)
+            intent.putExtra("field", field)
+            intent.putExtra("company", company)
             intent.putExtra("id", id)
             startActivity(intent)
         }
@@ -59,7 +58,7 @@ class AuthConfirmInfoActivity : AppCompatActivity() {
         binding.conName.text = name + "님의 정보를 확인해주세요"
         binding.conPhoneNum.text = phoneNum
         binding.conEmail.text = email
-        binding.conCompany.text = "$company/$department($comPosition)"
+        binding.conCompany.text = company
     }
 
 

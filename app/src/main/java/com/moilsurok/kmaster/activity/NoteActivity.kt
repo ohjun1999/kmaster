@@ -131,7 +131,6 @@ class NoteActivity : AppCompatActivity() {
             "건축",
             "전기",
             "공예",
-            "차량·철도",
             "패션",
             "산업안전",
             "폐지",
@@ -155,8 +154,6 @@ class NoteActivity : AppCompatActivity() {
             "에너지.자원",
             "식품가공",
             "인쇄.출판",
-            "차량.철도",
-            "기계조립.관리정비",
             "차량철도",
 
 

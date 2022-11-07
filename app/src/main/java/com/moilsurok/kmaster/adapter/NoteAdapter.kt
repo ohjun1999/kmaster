@@ -62,7 +62,7 @@ class NoteAdapter(
         holder.num.text = "제" + user.num + "호"
         holder.sector.text = user.occupation
 
-        if (user.phoneNum == null) {
+        if (user.phoneNum!!.isEmpty()) {
             holder.phoneNum.text = "미기입"
         } else {
            holder.phoneNum.text = user.phoneNum.toString().replace("[","").replace("]","")

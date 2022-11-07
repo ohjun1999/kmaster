@@ -32,15 +32,9 @@ class ExtraActivity : AppCompatActivity() {
         setContentView(view)
         val year = intent.getStringExtra("year")
         val name = intent.getStringExtra("name")
-        val birthdate = intent.getStringExtra("birthdate")
         val phoneNum = intent.getStringExtra("phoneNum")
         val email = intent.getStringExtra("email")
         val company = intent.getStringExtra("company")
-        val department = intent.getStringExtra("department")
-        val comPosition = intent.getStringExtra("comPosition")
-        val comTel = intent.getStringExtra("comTel")
-        val comAdr = intent.getStringExtra("comAdr")
-        val faxNum = intent.getStringExtra("faxNum")
         val id = intent.getStringExtra("id")
 
 
@@ -143,71 +137,31 @@ class ExtraActivity : AppCompatActivity() {
     }
 
     private fun getProfileReq() {
-        var answer: String
-        var notice: String
-        var profile: String
-        var question: String
-        var reqProfile: String
-        var reqQuestion: String
-        var reqUser: String
-        var schedule: String
-        var user: String
+
         val year = intent.getStringExtra("year")
         val name = intent.getStringExtra("name")
-        val birthdate = intent.getStringExtra("birthdate")
         val phoneNum = intent.getStringExtra("phoneNum")
         val email = intent.getStringExtra("email")
         val company = intent.getStringExtra("company")
-        val department = intent.getStringExtra("department")
-        val comPosition = intent.getStringExtra("comPosition")
-        val comTel = intent.getStringExtra("comTel")
-        val comAdr = intent.getStringExtra("comAdr")
-        val faxNum = intent.getStringExtra("faxNum")
         val id = intent.getStringExtra("id")
+        val field = intent.getStringExtra("field")
+        val occupation = intent.getStringExtra("occupation")
+        val num = intent.getStringExtra("num")
 
 
-        val getReq = db
-            .collection("Counter")
-        getReq
-            .get()
-            //IF문 사용해서 빈값을 받아왔을 때 실패 메시지 document를 받아왔을 때 액티비티 이동
-            .addOnSuccessListener { documents ->
+        val intent = Intent(this, NoteProfileChangeActivity::class.java)
+        intent.putExtra("company", company)
+        intent.putExtra("name", name)
+        intent.putExtra("year", year)
+        intent.putExtra("phoneNum", phoneNum)
+        intent.putExtra("email", email)
+        intent.putExtra("id", id)
+        intent.putExtra("num", num)
+        intent.putExtra("occupation", occupation)
+        intent.putExtra("field", field)
+        startActivity(intent)
 
 
-                for (document in documents) {
-
-
-                    answer = document.data["answer"].toString()
-                    notice = document.data["notice"].toString()
-                    profile = document.data["profile"].toString()
-                    question = document.data["question"].toString()
-                    reqProfile = document.data["reqProfile"].toString()
-                    reqQuestion = document.data["reqQuestion"].toString()
-                    reqUser = document.data["reqUser"].toString()
-                    schedule = document.data["schedule"].toString()
-                    user = document.data["user"].toString()
-
-                    val intent = Intent(this, NoteProfileChangeActivity::class.java)
-                    intent.putExtra("company", company)
-                    intent.putExtra("name", name)
-                    intent.putExtra("year", year)
-                    intent.putExtra("birthdate", birthdate)
-                    intent.putExtra("phoneNum", phoneNum)
-                    intent.putExtra("email", email)
-                    intent.putExtra("department", department)
-                    intent.putExtra("comPosition", comPosition)
-                    intent.putExtra("comTel", comTel)
-                    intent.putExtra("comAdr", comAdr)
-                    intent.putExtra("faxNum", faxNum)
-                    intent.putExtra("id", id)
-                    intent.putExtra("user", user)
-
-                    startActivity(intent)
-                }
-            }
-            //경로가 실패했을 때
-            .addOnFailureListener {
-            }
     }
 
     private fun getQuestionReq() {

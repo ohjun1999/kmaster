@@ -57,19 +57,18 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         val year = intent.getStringExtra("year")
         val name = intent.getStringExtra("name")
-        val birthdate = intent.getStringExtra("birthdate")
         val phoneNum = intent.getStringExtra("phoneNum")
         val email = intent.getStringExtra("email")
         val company = intent.getStringExtra("company")
-        val department = intent.getStringExtra("department")
-        val comPosition = intent.getStringExtra("comPosition")
-        val comTel = intent.getStringExtra("comTel")
-        val comAdr = intent.getStringExtra("comAdr")
-        val faxNum = intent.getStringExtra("faxNum")
         val bookMark = intent.getStringExtra("bookMark")
+        val field = intent.getStringExtra("field")
+        val occupation = intent.getStringExtra("occupation")
+        val num = intent.getStringExtra("num")
         val id = intent.getStringExtra("id")
         Log.d("test", name.toString())
-
+        Log.d("MainActivity", phoneNum.toString())
+        Log.d("MainActivity", occupation.toString())
+        Log.d("MainActivity", field.toString())
 
 
         // 접근 가능
@@ -82,15 +81,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("company", company)
             intent.putExtra("name", name)
             intent.putExtra("year", year)
-            intent.putExtra("birthdate", birthdate)
             intent.putExtra("phoneNum", phoneNum)
             intent.putExtra("email", email)
-            intent.putExtra("department", department)
-            intent.putExtra("comPosition", comPosition)
-            intent.putExtra("comTel", comTel)
-            intent.putExtra("comAdr", comAdr)
-            intent.putExtra("faxNum", faxNum)
             intent.putExtra("id",id)
+            intent.putExtra("field",field)
+            intent.putExtra("occupation",occupation)
+            intent.putExtra("num",num)
             startActivity(intent)
         }
         binding.goNote.setOnClickListener {

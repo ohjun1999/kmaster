@@ -2,13 +2,8 @@ package com.moilsurok.kmaster.dataClass
 
 
 data class ProfileDataClass(
-    var birthdate: String? =  null,
     var check :String? = null,
-    var comAdr: String? = null,
-    var comPosition: String? = null,
-    var comTel: String? = null,
     var company: String? = null,
-    var department: String? = null,
     var email: String? = null,
     var modifiedDate :String? = null,
     var name: String? = null,
@@ -16,5 +11,7 @@ data class ProfileDataClass(
     var pubDate :String? = null,
     var user: String? = null,
     var year: String? =null,
-    var faxNum: String? =null,
+    var num: String? =null,
+    var field: String? =null,
+    var occupation: String? =null,
 )

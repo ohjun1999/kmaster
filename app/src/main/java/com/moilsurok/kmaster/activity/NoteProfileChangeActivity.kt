@@ -38,27 +38,13 @@ class NoteProfileChangeActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         val year = intent.getStringExtra("year")
         val name = intent.getStringExtra("name")
-        val birthdate = intent.getStringExtra("birthdate")
         val phoneNum = intent.getStringExtra("phoneNum")
         val email = intent.getStringExtra("email")
         val company = intent.getStringExtra("company")
-        val department = intent.getStringExtra("department")
-        val comPosition = intent.getStringExtra("comPosition")
-        val comTel = intent.getStringExtra("comTel")
-        val comAdr = intent.getStringExtra("comAdr")
-        val faxNum = intent.getStringExtra("faxNum")
         val id = intent.getStringExtra("id")
-        var answer = intent.getStringExtra("answer")
-        var notice = intent.getStringExtra("notice")
-        var profile = intent.getStringExtra("profile")
-        var question = intent.getStringExtra("question")
-//        val reqProfile = intent.getStringExtra("reqProfile")!!.toInt()
-        var reqQuestion = intent.getStringExtra("reqQuestion")
-        var reqUser = intent.getStringExtra("reqUser")
-        var schedule = intent.getStringExtra("schedule")
-        var user = intent.getStringExtra("user")
-        val reNum = 1
-//        val sum = reqProfile + reNum
+        val num = intent.getStringExtra("num")
+        val occupation = intent.getStringExtra("occupation")
+        val field = intent.getStringExtra("field")
 
 //        Log.d("test", sum.toString())
         Log.d("test12", name.toString())
@@ -93,7 +79,7 @@ class NoteProfileChangeActivity : AppCompatActivity() {
                         binding.request.visibility = View.GONE
 
 
-                    }else{
+                    } else {
                         binding.request.visibility = View.VISIBLE
                     }
 
@@ -106,27 +92,27 @@ class NoteProfileChangeActivity : AppCompatActivity() {
             .addOnSuccessListener { documents ->
 
                 if (documents!!.isEmpty) {
-//                    binding.frYear.text = year.toString()
                     binding.frName.text = name.toString()
                     binding.frPhoneNum.text = phoneNum.toString()
-//                    binding.frComNum.setText(comTel)
-//                    binding.frComFax.setText(faxNum)
                     binding.frEmail.setText(email)
                     binding.frCompany.setText(company)
-////        binding.c.setText(department)
-//                    binding.frComPosition.setText(comPosition)
-//                    binding.frComAdr.setText(comAdr)
+                    binding.frNum.text = year + "년 " + "제" + num + "호"
+                    binding.frSector1.text = field
+                    binding.frSector2.text = occupation
+
                 } else {
                     for (document in documents) {
 //                        binding.frYear.text = year.toString()
                         binding.frName.text = name.toString()
-                        binding.frPhoneNum.text = phoneNum.toString()
-//                        binding.frComNum.setText(document.getString("comTel"))
-//                        binding.frComFax.setText(document.getString("faxNum"))
+                        binding.frNum.text = document.getString("num")
+                        binding.frPhoneNum.text =
+                            document.getString("phoneNum").toString().replace("[", "")
+                                .replace("]", "")
+                        binding.frSector1.text = document.getString("field")
+                        binding.frSector2.text = document.getString("occupation")
                         binding.frEmail.setText(document.getString("email"))
                         binding.frCompany.setText(document.getString("company"))
-//                        binding.frComPosition.setText(document.getString("comPosition"))
-//                        binding.frComAdr.setText(document.getString("comAdr"))
+
                     }
                 }
 
@@ -136,21 +122,18 @@ class NoteProfileChangeActivity : AppCompatActivity() {
 //            binding.request.visibility = View.GONE
 //            binding.cancellationRequest.visibility = View.VISIBLE
             val profileDataClass = ProfileDataClass()
-//            profileDataClass.birthdate = binding.frBirthDate.text.toString()
             profileDataClass.check = "X"
-//            profileDataClass.comAdr = binding.frComAdr.text.toString()
-//            profileDataClass.comPosition = binding.frComPosition.text.toString()
             profileDataClass.company = binding.frCompany.text.toString()
-//            profileDataClass.comTel = binding.frComNum.text.toString()
-//            profileDataClass.department = binding.frDepartment.text.toString()
             profileDataClass.email = binding.frEmail.text.toString()
-//            profileDataClass.faxNum = binding.frComFax.text.toString()
             profileDataClass.modifiedDate = formatted.toString()
-            profileDataClass.name = binding.frName.text.toString()
-            profileDataClass.phoneNum = binding.frPhoneNum.text.toString()
             profileDataClass.pubDate = formatted.toString()
             profileDataClass.user = id.toString()
             profileDataClass.year = year.toString()
+            profileDataClass.name = binding.frName.text.toString()
+            profileDataClass.phoneNum = binding.frPhoneNum.text.toString()
+            profileDataClass.num = binding.frNum.text.toString()
+            profileDataClass.field = binding.frSector1.text.toString()
+            profileDataClass.occupation = binding.frSector2.text.toString()
             db
                 .collection("Counter").document("counter")
                 .update("reqProfile", FieldValue.increment(1))
