@@ -194,33 +194,6 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="47" />
-            <!--            <FrameLayout-->
-            <!--                android:layout_width="30dp"-->
-            <!--                android:layout_height="30dp"-->
-            <!--                android:layout_marginTop="8dp">-->
-
-            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
-            <!--                    android:id="@+id/img1"-->
-            <!--                    android:layout_width="30dp"-->
-            <!--                    android:layout_height="30dp"-->
-            <!--                    android:background="@null"-->
-            <!--                    android:src="@drawable/ic_favorite_border"/>-->
-            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
-            <!--                    android:id="@+id/img2"-->
-            <!--                    android:layout_width="30dp"-->
-            <!--                    android:layout_height="30dp"-->
-            <!--                    android:background="@null"-->
-            <!--                    android:src="@drawable/ic_favorite_border"-->
-            <!--                    android:visibility="gone"/>-->
-
-
-            <!--            </FrameLayout>-->
-            <!--            &lt;!&ndash;            <CheckBox&ndash;&gt;-->
-            <!--                android:id="@+id/noteCheck"-->
-            <!--                android:layout_width="30dp"-->
-            <!--                android:layout_height="30dp"-->
-            <!--                android:background="@drawable/note_check"-->
-            <!--                android:button="@null" />-->
 
             <View
                 android:layout_width="0dp"

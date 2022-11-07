@@ -110,67 +110,62 @@ class DateActivity : AppCompatActivity() {
 //                    6 -> Color.BLUE
 //                    else -> Color.BLACK
 //                })
+                var sDateList = arrayListOf<String>(
 
+                )
                 if (day.owner == DayOwner.THIS_MONTH) {
                     db
                         .collection("Schedule")
                         .get().addOnSuccessListener { result ->
                             for (document in result) {
                                 val schDate = document.getString("date")
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                    scheduleDate =
-                                        LocalDate.parse(schDate, DateTimeFormatter.ISO_DATE)
-                                    if (scheduleDate==day.date){
-                                        if (selectedDate == day.date){
-                                            textView.setTextColorRes(R.color.olcColor)
-                                            textView.setBackgroundResource(R.drawable.example_3_selected_bg)
-                                            dotView.makeVisible()
+                                sDateList.add(schDate.toString())
 
-                                        }else{
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                                    val sDate = sDateList
+                                    if (sDateList.contains(day.date.toString())){
+                                        scheduleDate = day.date
+                                    }
+                                        Log.d("test1", day.date.toString())
+//                                    scheduleDate =
+//                                        LocalDate.parse(schDate.toString(), DateTimeFormatter.ISO_DATE)
+                                    when (day.date) {
+                                        today -> {
+                                            textView.setTextColorRes(R.color.example_3_white)
+                                            textView.setBackgroundResource(R.drawable.example_3_today_bg)
+                                            dotView.makeInVisible()
+                                            binding.selectDateRecyclerView.adapter = selectDateScheduleAdapter()
+                                            binding.selectDateRecyclerView.layoutManager =
+                                                LinearLayoutManager(this@DateActivity)
+
+                                        }
+                                        selectedDate -> {
+                                            textView.setTextColorRes(R.color.white)
+                                            textView.setBackgroundResource(R.drawable.example_3_selected_bg)
+                                            dotView.makeInVisible()
+                                            binding.selectDateRecyclerView.adapter = selectDateScheduleAdapter()
+                                            binding.selectDateRecyclerView.layoutManager =
+                                                LinearLayoutManager(this@DateActivity)
+                                        }
+
+                                        scheduleDate -> {
                                             textView.setTextColorRes(R.color.example_3_black)
                                             textView.background = null
                                             dotView.makeVisible()
                                         }
 
+                                        else -> {
+                                            textView.setTextColorRes(R.color.example_3_black)
+                                            textView.background = null
+                                            dotView.isVisible = events[day.date].orEmpty().isNotEmpty()
+                                        }
                                     }
                                 }
 
                             }
                         }
                     textView.makeVisible()
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        when (day.date) {
-                            today -> {
-                                textView.setTextColorRes(R.color.example_3_white)
-                                textView.setBackgroundResource(R.drawable.example_3_today_bg)
-                                dotView.makeInVisible()
-                                binding.selectDateRecyclerView.adapter = selectDateScheduleAdapter()
-                                binding.selectDateRecyclerView.layoutManager =
-                                    LinearLayoutManager(this@DateActivity)
 
-                            }
-                            selectedDate -> {
-                                textView.setTextColorRes(R.color.mainBlack)
-                                textView.setBackgroundResource(R.drawable.example_3_selected_bg)
-                                dotView.makeInVisible()
-                                binding.selectDateRecyclerView.adapter = selectDateScheduleAdapter()
-                                binding.selectDateRecyclerView.layoutManager =
-                                    LinearLayoutManager(this@DateActivity)
-                            }
-
-                            scheduleDate -> {
-                                textView.setTextColorRes(R.color.example_3_black)
-                                textView.background = null
-                                dotView.makeVisible()
-                            }
-
-                            else -> {
-                                textView.setTextColorRes(R.color.example_3_black)
-                                textView.background = null
-                                dotView.isVisible = events[day.date].orEmpty().isNotEmpty()
-                            }
-                        }
-                    }
                 } else if (textView == events[day.date]) {
                     textView.setTextColorRes(R.color.example_3_black)
                     textView.background = null

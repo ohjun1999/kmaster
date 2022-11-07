@@ -48,7 +48,7 @@ class NoteYearFragment : Fragment() {
 
         db
             .collection("User").whereEqualTo("year", year)
-            .orderBy("name", Query.Direction.ASCENDING).limit(15)
+            .orderBy("num", Query.Direction.ASCENDING).limit(15)
             .get().addOnSuccessListener { result ->
                 userYearList.clear()
                 for (document in result) {
@@ -74,7 +74,7 @@ class NoteYearFragment : Fragment() {
                     var next =
                         db
                             .collection("User").whereEqualTo("year", year)
-                            .orderBy("name", Query.Direction.ASCENDING)
+                            .orderBy("num", Query.Direction.ASCENDING)
                             .startAfter(lastVisible)
                             .limit(15)
 
@@ -112,7 +112,7 @@ class NoteYearFragment : Fragment() {
                                             next =
                                                 db
                                                     .collection("User").whereEqualTo("year", year)
-                                                    .orderBy("name", Query.Direction.ASCENDING)
+                                                    .orderBy("num", Query.Direction.ASCENDING)
                                                     .startAfter(lastVisible)
                                                     .limit(15)
 

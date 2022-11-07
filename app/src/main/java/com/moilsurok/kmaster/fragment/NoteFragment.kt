@@ -36,8 +36,6 @@ import com.moilsurok.kmaster.MySharedPreferences
 import com.moilsurok.kmaster.activity.NoteActivity
 import com.moilsurok.kmaster.adapter.NoteAdapter
 import com.moilsurok.kmaster.adapter.NoteSearchAdapter
-import com.moilsurok.kmaster.adapter.SearchAdapter
-import com.moilsurok.kmaster.dataClass.SearchUserDataClass
 import com.moilsurok.kmaster.dataClass.UserDataClass
 import com.moilsurok.kmaster.dataClass.UserSearchDataClass
 import com.moilsurok.kmaster.databinding.FragmentNoteBinding
@@ -56,7 +54,7 @@ class NoteFragment : Fragment() {
     val first =
         firestore
             ?.collection("User")?.orderBy("year", Query.Direction.ASCENDING)
-            ?.orderBy("name", Query.Direction.ASCENDING)?.limit(7)
+            ?.orderBy("num", Query.Direction.ASCENDING)?.limit(7)
 
 
     override fun onCreateView(
@@ -83,26 +81,26 @@ class NoteFragment : Fragment() {
         // 검색 옵션 변수
         var searchOption = "name"
         // 스피너 옵션에 따른 동작
-        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                when (binding.spinner.getItemAtPosition(position)) {
-                    "이름" -> {
-                        searchOption = "name"
-                    }
-                    "회사" -> {
-                        searchOption = "company"
-                    }
-                }
-            }
-        }
+//        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//            }
+//
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                when (binding.spinner.getItemAtPosition(position)) {
+//                    "이름" -> {
+//                        searchOption = "name"
+//                    }
+//                    "회사" -> {
+//                        searchOption = "company"
+//                    }
+//                }
+//            }
+//        }
 
 
         binding.searchWord.addTextChangedListener(object : TextWatcher {
@@ -265,7 +263,7 @@ class NoteFragment : Fragment() {
         var UserList = arrayListOf<UserDataClass>()
         db
             .collection("User").whereEqualTo("year", year)
-            .orderBy("name", Query.Direction.ASCENDING).limit(7)
+            .orderBy("num", Query.Direction.ASCENDING).limit(7)
             .get().addOnSuccessListener { result ->
                 UserList.clear()
                 for (document in result!!.documents) {
@@ -280,64 +278,69 @@ class NoteFragment : Fragment() {
                 noteRecyclerView.adapter = noteAdapter
                 noteRecyclerView.layoutManager =
                     LinearLayoutManager(NoteActivity(), RecyclerView.VERTICAL, false)
-
-                var lastVisible = result.documents[result.size() - 1]
-                var next =
-                    db.collection("User").whereEqualTo("year", year)
-                        .orderBy("name", Query.Direction.ASCENDING)
-                        .startAfter(lastVisible)
-                        .limit(7)
-
-                binding.noteRecyclerView.addOnScrollListener(object :
-                    RecyclerView.OnScrollListener() {
-                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        super.onScrolled(recyclerView, dx, dy)
-
-                        val lastVisibleItemPosition =
-                            (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
-                        val itemTotalCount =
-                            recyclerView.adapter!!.itemCount - 1 // 어댑터에 등록된 아이템의 총 개수 -1
-
-                        // 스크롤이 끝에 도달했는지 확인
-                        if (lastVisibleItemPosition == itemTotalCount && result.size() > 0) {
-
-                            next
-                                .get().addOnSuccessListener { result ->
-
-                                    // ArrayList 비워줌
-                                    for (document in result) {
-                                        val item =
-                                            document.toObject(UserDataClass::class.java)
-                                        UserList.add(item)
+                if (result.isEmpty) {
 
 
+                }else {
+
+
+                    var lastVisible = result.documents[result.size() - 1]
+                    var next =
+                        db.collection("User").whereEqualTo("year", year)
+                            .orderBy("num", Query.Direction.ASCENDING)
+                            .startAfter(lastVisible)
+                            .limit(7)
+
+                    binding.noteRecyclerView.addOnScrollListener(object :
+                        RecyclerView.OnScrollListener() {
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                            super.onScrolled(recyclerView, dx, dy)
+
+                            val lastVisibleItemPosition =
+                                (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
+                            val itemTotalCount =
+                                recyclerView.adapter!!.itemCount - 1 // 어댑터에 등록된 아이템의 총 개수 -1
+
+                            // 스크롤이 끝에 도달했는지 확인
+                            if (lastVisibleItemPosition == itemTotalCount && result.size() > 0) {
+
+                                next
+                                    .get().addOnSuccessListener { result ->
+
+                                        // ArrayList 비워줌
+                                        for (document in result) {
+                                            val item =
+                                                document.toObject(UserDataClass::class.java)
+                                            UserList.add(item)
+
+
+                                        }
+                                        if (result.size() > 0) {
+                                            lastVisible =
+                                                result.documents[result.size() - 1]
+
+                                            next =
+                                                db.collection("User").whereEqualTo("year", year)
+                                                    .orderBy("num", Query.Direction.ASCENDING)
+                                                    .startAfter(lastVisible)
+                                                    .limit(7)
+                                        }
+                                        noteAdapter.notifyDataSetChanged()
                                     }
-                                    if (result.size() > 0) {
-                                        lastVisible =
-                                            result.documents[result.size() - 1]
 
-                                        next =
-                                            db.collection("User").whereEqualTo("year", year)
-                                                .orderBy("name", Query.Direction.ASCENDING)
-                                                .startAfter(lastVisible)
-                                                .limit(7)
-                                    }
-                                    noteAdapter.notifyDataSetChanged()
-                                }
-
-                        } else if (lastVisibleItemPosition == itemTotalCount && result.size() < 0) {
-                            lastVisible =
-                                result.documents[result.size() - 1]
-                            Toast.makeText(
-                                context,
-                                "더이상 불러올 데이터가 없습니다.",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            } else if (lastVisibleItemPosition == itemTotalCount && result.size() < 0) {
+                                lastVisible =
+                                    result.documents[result.size() - 1]
+                                Toast.makeText(
+                                    context,
+                                    "더이상 불러올 데이터가 없습니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                    }
-                })
+                    })
 
-
+                }
             }
     }
 
@@ -347,7 +350,7 @@ class NoteFragment : Fragment() {
         db
             .collection("User").whereEqualTo("sector", sector)
             .orderBy("year", Query.Direction.ASCENDING)
-            .orderBy("name", Query.Direction.ASCENDING).limit(7)
+            .orderBy("num", Query.Direction.ASCENDING).limit(7)
             .get().addOnSuccessListener { result ->
                 UserList.clear()
                 for (document in result!!.documents) {
@@ -368,7 +371,7 @@ class NoteFragment : Fragment() {
                 var next =
                     db.collection("User").whereEqualTo("sector", sector)
                         .orderBy("year", Query.Direction.ASCENDING)
-                        .orderBy("name", Query.Direction.ASCENDING)
+                        .orderBy("num", Query.Direction.ASCENDING)
                         .startAfter(lastVisible)
                         .limit(7)
 
@@ -403,7 +406,7 @@ class NoteFragment : Fragment() {
                                         next =
                                             db.collection("User").whereEqualTo("sector", sector)
                                                 .orderBy("year", Query.Direction.ASCENDING)
-                                                .orderBy("name", Query.Direction.ASCENDING)
+                                                .orderBy("num", Query.Direction.ASCENDING)
                                                 .startAfter(lastVisible)
                                                 .limit(7)
                                     }
@@ -436,7 +439,7 @@ class NoteFragment : Fragment() {
         var UserList = arrayListOf<UserDataClass>()
         db
             .collection("User").orderBy("year", Query.Direction.ASCENDING)
-            .orderBy("name", Query.Direction.ASCENDING).limit(7)
+            .orderBy("num", Query.Direction.ASCENDING).limit(7)
             .get().addOnSuccessListener { result ->
                 for (document in result) {
 
@@ -461,7 +464,7 @@ class NoteFragment : Fragment() {
                     db
                         .collection("User")
                         .orderBy("year", Query.Direction.ASCENDING)
-                        .orderBy("name", Query.Direction.ASCENDING)
+                        .orderBy("num", Query.Direction.ASCENDING)
                         .startAfter(lastVisible)
                         .limit(7)
 
@@ -497,7 +500,7 @@ class NoteFragment : Fragment() {
                                         next = db
                                             .collection("User")
                                             .orderBy("year", Query.Direction.ASCENDING)
-                                            .orderBy("name", Query.Direction.ASCENDING)
+                                            .orderBy("num", Query.Direction.ASCENDING)
                                             .startAfter(lastVisible)
                                             .limit(7)
                                         noteAdapter.notifyDataSetChanged()

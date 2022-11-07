@@ -56,7 +56,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="원우수첩"
+                    android:text="명장수첩"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -185,8 +185,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_olc_year_logo" />
+                    android:padding="28dp"
+                    android:background="@drawable/ic_rectangle_4616"
+                    android:src="@drawable/ic_master_logo" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/olcYearRecyclerView"
@@ -197,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:gravity="center"
-                android:background="@color/master2"
+                android:background="@color/master1"
                 android:orientation="horizontal">
                 <ImageView
                     android:src="@drawable/ic_group_8956"
@@ -209,7 +210,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:textSize="16sp"
-                    android:text="업종"
+                    android:text="분야"
                     android:layout_marginStart="5dp"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content" />

@@ -59,12 +59,16 @@ class NoteSearchAdapter(
 
 
         holder.name.text = user.name
-        holder.year.text = user.year
+        holder.year.text = user.year + "년"
+        holder.num.text = "제" + user.num + "호"
+        holder.sector.text = user.occupation
+
+
 
         if (user.phoneNum == null) {
             holder.phoneNum.text = "미기입"
         } else {
-            holder.phoneNum.text = user.phoneNum
+            holder.phoneNum.text = user.phoneNum.toString().replace("[","").replace("]","")
         }
         if (user.email == null) {
             holder.mailAdress.text = "미기입"
@@ -79,7 +83,7 @@ class NoteSearchAdapter(
 //        }
         if (user.files == null) {
             Glide.with(holder.itemView)
-                .load("https://firebasestorage.googleapis.com/v0/b/seogang-firebase.appspot.com/o/files%2Fuser%2F75542fce-632a-45ce-9e29-f006587128af_%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=a87135dc-7ce7-413a-b727-33f79ba1bc05")
+                .load("https://firebasestorage.googleapis.com/v0/b/korea-master-firebase.appspot.com/o/files%2Fuser%2F544bd110-ff04-4986-88f4-21c2488b35f3_%EB%AA%85%EC%9E%A5%ED%9A%8C%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=59bbf80d-dea6-4203-be59-2781d81eecd9")
                 .into(holder.noteImage)
         } else {
             Glide.with(holder.itemView)
@@ -95,23 +99,18 @@ class NoteSearchAdapter(
             val intent =
                 Intent(holder.itemView.context, NoteProfileDetailActivity::class.java)
             intent.putExtra("content", "원하는 데이터를 보냅니다.")
-            intent.putExtra("year", user.year.toString())
             intent.putExtra("name", user.name)
             intent.putExtra("files", user.files)
-//            intent.putExtra("filenames", user.filenames)
-            intent.putExtra("birthdate", user.birthdate)
             intent.putExtra("phoneNum", user.phoneNum)
             intent.putExtra("email", user.email)
             intent.putExtra("company", user.company)
-            intent.putExtra("department", user.department)
-            intent.putExtra("comPosition", user.comPosition)
-            intent.putExtra("comTel", user.comTel)
-            intent.putExtra("comAdr", user.comAdr)
-            intent.putExtra("faxNum", user.faxNum)
             intent.putExtra("uid", user.uid)
             intent.putExtra("iduser", iduser)
-            intent.putExtra("sector", user.sector)
-
+            intent.putExtra("field", user.field)
+            intent.putExtra("year", holder.year.text)
+            intent.putExtra("num", holder.num.text)
+            intent.putExtra("phoneNum", holder.phoneNum.text)
+            intent.putExtra("occupation", user.occupation)
             if (user.bookmark!!.contains(iduser)) {
                 intent.putExtra("check", "O")
             } else {
@@ -132,10 +131,9 @@ class NoteSearchAdapter(
         val name: TextView = itemView.findViewById(R.id.noteName)
         val phoneNum: TextView = itemView.findViewById(R.id.phoneNum)
         val year: TextView = itemView.findViewById(R.id.noteYear)
+        val num: TextView = itemView.findViewById(R.id.noteNum)
+        val sector: TextView = itemView.findViewById(R.id.sector)
         val mailAdress: TextView = itemView.findViewById(R.id.mailAdress)
-//        val companyName: TextView = itemView.findViewById(R.id.companyName)
-
-        //        val noteCheck: CheckBox = itemView.findViewById(R.id.noteCheck)
         val noteImage: ImageView = itemView.findViewById(R.id.noteImage)
 
 

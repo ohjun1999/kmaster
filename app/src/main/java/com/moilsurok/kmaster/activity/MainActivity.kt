@@ -203,15 +203,15 @@ class MainActivity : AppCompatActivity() {
 
 
         val firstYear =
-            db.collection("User").whereNotEqualTo("year","교수진").orderBy("year", Query.Direction.ASCENDING).limit(1)
+            db.collection("User").orderBy("year", Query.Direction.ASCENDING).limit(1)
         val endYear =
-            db.collection("User").whereNotEqualTo("year","교수진").orderBy("year", Query.Direction.DESCENDING).limit(1)
+            db.collection("User").orderBy("year", Query.Direction.DESCENDING).limit(1)
 
 
         firstYear.get().addOnSuccessListener { result ->
 
             for (document in result) {
-                val firstYear1 = document.get("year").toString().replace("기","")
+                val firstYear1 = document.get("year").toString()
                 Log.d("firstYear", firstYear1)
                 MySharedPreferences.setFirstYear(this, firstYear1)
             }
@@ -220,7 +220,7 @@ class MainActivity : AppCompatActivity() {
         endYear.get().addOnSuccessListener { result ->
 
             for (document in result) {
-                val endYear1 = document.get("year").toString().replace("기","")
+                val endYear1 = document.get("year").toString()
                 Log.d("endYear", endYear1)
                 MySharedPreferences.setEndYear(this, endYear1)
             }

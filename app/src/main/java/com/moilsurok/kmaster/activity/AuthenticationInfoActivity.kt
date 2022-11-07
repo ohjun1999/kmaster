@@ -190,14 +190,14 @@ class AuthenticationInfoActivity : AppCompatActivity() {
         var name: String
         var company: String
         var year: String
-        var birthdate: String
+        var files: String
         var phoneNum : ArrayList<String>
         var email: String
         var department: String
         var comPosition: String
-        var comTel: String
-        var comAdr: String
-        var faxNum: String
+        var num: String
+        var occupation: String
+        var field: String
         var id: String
         var userCheck: String
         var bookMark: String
@@ -221,16 +221,16 @@ class AuthenticationInfoActivity : AppCompatActivity() {
                         name = document.getString("name").toString()
                         company = document.getString("company").toString()
                         year = document.get("year").toString()
-                        birthdate = document.getString("birthdate").toString()
                         phoneNum = document.get("phoneNum") as ArrayList<String>
                         email = document.getString("email").toString()
                         department = document.getString("department").toString()
                         comPosition = document.getString("comPosition").toString()
-                        comTel = document.getString("comTel").toString()
-                        comAdr = document.getString("comAdr").toString()
-                        faxNum = document.getString("faxNum").toString()
                         bookMark = document.get("bookmark").toString()
+                        num = document.getString("num").toString()
+                        occupation = document.getString("occupation").toString()
+                        field = document.getString("field").toString()
                         userCheck = document.getString("userCheck").toString()
+                        files = document.getString("files").toString()
                         if (userCheck == "O") {
 
 
@@ -247,16 +247,16 @@ class AuthenticationInfoActivity : AppCompatActivity() {
                         intent.putExtra("company", company)
                         intent.putExtra("name", name)
                         intent.putExtra("year", year)
-                        intent.putExtra("birthdate", birthdate)
                         intent.putExtra("phoneNum", phoneNum.toString())
                         intent.putExtra("email", email)
                         intent.putExtra("department", department)
                         intent.putExtra("comPosition", comPosition)
-                        intent.putExtra("comTel", comTel)
-                        intent.putExtra("comAdr", comAdr)
-                        intent.putExtra("faxNum", faxNum)
                         intent.putExtra("id", id)
                         intent.putExtra("bookMark", bookMark)
+                        intent.putExtra("num", num)
+                        intent.putExtra("field", field)
+                        intent.putExtra("files", files)
+                        intent.putExtra("occupation", occupation)
                         startActivity(intent)
 
                         finish()

@@ -52,11 +52,13 @@ class NoteProfileDetailActivity : AppCompatActivity() {
         val comTel = intent.getStringExtra("comTel")
         val uid = intent.getStringExtra("uid")
         val sector = intent.getStringExtra("sector")
-
+        val field = intent.getStringExtra("field")
+        val num = intent.getStringExtra("num")
+        val occupation = intent.getStringExtra("occupation")
 
         if (files.toString() == "null") {
             Glide.with(this)
-                .load("https://firebasestorage.googleapis.com/v0/b/seogang-firebase.appspot.com/o/files%2Fuser%2F75542fce-632a-45ce-9e29-f006587128af_%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=a87135dc-7ce7-413a-b727-33f79ba1bc05")
+                .load("https://firebasestorage.googleapis.com/v0/b/korea-master-firebase.appspot.com/o/files%2Fuser%2F544bd110-ff04-4986-88f4-21c2488b35f3_%EB%AA%85%EC%9E%A5%ED%9A%8C%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=59bbf80d-dea6-4203-be59-2781d81eecd9")
                 .into(binding.deImg)
         } else {
             Glide.with(this)
@@ -64,11 +66,11 @@ class NoteProfileDetailActivity : AppCompatActivity() {
                 .into(binding.deImg)
         }
 
-        if (year == null) {
-            binding.deYear.text = "미기입"
-        } else {
-            binding.deYear.text = year
-        }
+//        if (year == null) {
+//            binding.deYear.text = "미기입"
+//        } else {
+//            binding.deYear.text = year
+//        }
         if (name.toString() == "null") {
             binding.deName.text = "미기입"
         } else {
@@ -89,31 +91,22 @@ class NoteProfileDetailActivity : AppCompatActivity() {
         } else {
             binding.deCompany.text = company
         }
-        if (comPosition.toString() == "null") {
-            binding.deComPosition.text = "미기입"
+        if (field.toString() == "null") {
+            binding.deField.text = "미기입"
         } else {
-            binding.deComPosition.text = comPosition
+            binding.deField.text = field
         }
-        if (comAdr.toString() == "null") {
-            binding.deComAdr.text = "미기입"
+        if (occupation.toString() == "null") {
+            binding.deOccupation.text = "미기입"
         } else {
-            binding.deComAdr.text = comAdr
+            binding.deOccupation.text = occupation
         }
-        if (faxNum.toString() == "null") {
-            binding.deFaxNum.text = "미기입"
+        if (year.toString() == "null") {
+            binding.deNum.text = "미기입"
         } else {
-            binding.deFaxNum.text = faxNum
+            binding.deNum.text = "$year $num"
         }
-        if (comTel.toString() == "null") {
-            binding.frComNum.text = "미기입"
-        } else {
-            binding.frComNum.text = comTel
-        }
-        if (sector.toString() == "null") {
-            binding.frCom.text = "미기입"
-        } else {
-            binding.frCom.text = sector
-        }
+
         if (check == "O") {
 
             binding.img2.visibility = View.VISIBLE

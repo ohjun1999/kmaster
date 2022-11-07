@@ -103,19 +103,19 @@ class NoteActivity : AppCompatActivity() {
         val firstYearNum = MySharedPreferences.getFirstYear(this)
         val endYearNum = MySharedPreferences.getEndYear(this)
         var olcYearList = arrayListOf<String>(
-            "교수진"
+            "사무국"
         )
 
-//            for (i in firstYearNum.toInt()..endYearNum.toInt()) {
-//                if (i.toString().length == 1) {
-//                    val s = "%02d".format(i)
-//                    olcYearList.add(s + "기")
-//                } else {
-//                    olcYearList.add(i.toString() + "기")
-//                }
-//
-//
-//            }
+        for (i in firstYearNum.toInt()..endYearNum.toInt()) {
+            if (i.toString().length == 1) {
+                val s = "%02d".format(i)
+                olcYearList.add(s)
+            } else {
+                olcYearList.add(i.toString())
+            }
+
+
+        }
 
 
         val olcYearAdapter = OlcYearAdapter(this, olcYearList)
@@ -124,40 +124,43 @@ class NoteActivity : AppCompatActivity() {
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         var olcSectorList = arrayListOf(
-            "ITㆍ웹ㆍ통신",
-            "가구ㆍ목재ㆍ제지",
-            "건설ㆍ건축ㆍ토목ㆍ시공",
-            "공연ㆍ예술ㆍ문화ㆍ엔터테인먼트",
-            "광고ㆍ홍보ㆍ전시",
-            "금속ㆍ재료ㆍ철강ㆍ요업",
-            "기계ㆍ설비ㆍ자동차",
-            "디자인ㆍ설계",
-            "레저ㆍ스포츠ㆍ여가",
-            "호텔ㆍ여행ㆍ항공",
-            "반도체ㆍ광학ㆍ디스플레이",
-            "부동산ㆍ임대ㆍ중개",
-            "뷰티ㆍ미용ㆍ화장품",
-            "석유ㆍ화학ㆍ에너지",
-            "섬유ㆍ의류ㆍ패션",
-            "시설관리ㆍ용역ㆍ아웃소싱",
-            "식품ㆍ외식업ㆍ식음료",
-            "연구ㆍ컨설팅ㆍ조사",
-            "운송ㆍ운수ㆍ물류",
-            "웨딩ㆍ장례ㆍ이벤트",
-            "유통ㆍ판매ㆍ무역",
-            "의료ㆍ제약ㆍ보건ㆍ바이오",
-            "전기ㆍ전자ㆍ제어",
-            "출판ㆍ인쇄ㆍ영상ㆍ미디어",
-            "방송ㆍ언론",
-            "홍보",
-            "공무원ㆍ공공기관ㆍ공기업",
-            "금융ㆍ보험",
-            "법조ㆍ법무ㆍ특허",
-            "세무ㆍ회계",
-            "교육",
-            "협회ㆍ단체",
-            "기타"
-        )
+
+            "금속재료",
+            "기계가공",
+            "전자",
+            "건축",
+            "전기",
+            "공예",
+            "차량·철도",
+            "패션",
+            "산업안전",
+            "폐지",
+            "화학물 및 화학공정관리",
+            "섬유제조",
+            "금형",
+            "통신기술",
+            "기계조립·관리정비",
+            "산업환경",
+            "소재개발",
+            "디자인",
+            "제과.제빵",
+            "조리",
+            "해양자원",
+            "이,미용",
+            "선박·항공",
+            "농업",
+            "품질관리",
+            "기계설계",
+            "정보기술",
+            "에너지.자원",
+            "식품가공",
+            "인쇄.출판",
+            "차량.철도",
+            "기계조립.관리정비",
+            "차량철도",
+
+
+            )
         val olcSectorAdapter = OlcSectorAdapter(this, olcSectorList)
         olcSectorRecyclerView.adapter = olcSectorAdapter
         olcSectorRecyclerView.layoutManager =
@@ -215,7 +218,7 @@ class NoteActivity : AppCompatActivity() {
             if (olcYear == "교수진") {
                 holder.olcYear.text = "교수진"
             } else {
-                holder.olcYear.text = "OLC " + olcYear
+                holder.olcYear.text = olcYear
             }
 
 
@@ -322,7 +325,7 @@ class NoteActivity : AppCompatActivity() {
         val first =
             firestore
                 ?.collection("User")?.orderBy("year", Query.Direction.ASCENDING)
-                ?.orderBy("name", Query.Direction.ASCENDING)?.limit(20)
+                ?.orderBy("num", Query.Direction.ASCENDING)?.limit(20)
 
         //        // 파이어스토어에서 데이터를 불러와서 검색어가 있는지 판단
         fun search(searchWord: String, option: String) {
