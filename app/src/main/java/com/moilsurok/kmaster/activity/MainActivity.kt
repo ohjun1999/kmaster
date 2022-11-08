@@ -100,6 +100,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NoticeActivity::class.java)
             startActivity(intent)
         }
+        binding.goNotice2.setOnClickListener {
+            val intent = Intent(this, NoticeActivity::class.java)
+            startActivity(intent)
+        }
         binding.goDate.setOnClickListener {
             val intent = Intent(this, DateActivity::class.java)
             startActivity(intent)

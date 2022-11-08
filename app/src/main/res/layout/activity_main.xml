@@ -61,7 +61,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:background="@drawable/master_main"
+                        android:background="@drawable/main_image_master"
                         android:orientation="horizontal">
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -355,6 +355,7 @@
                             android:textSize="18sp" />
 
                         <TextView
+                            android:id="@+id/goNotice2"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
