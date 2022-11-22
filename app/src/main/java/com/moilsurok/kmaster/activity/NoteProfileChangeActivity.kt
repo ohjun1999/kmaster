@@ -96,7 +96,12 @@ class NoteProfileChangeActivity : AppCompatActivity() {
                     binding.frPhoneNum.text = phoneNum.toString()
                     binding.frEmail.setText(email)
                     binding.frCompany.setText(company)
-                    binding.frNum.text = year + "년 " + "제" + num + "호"
+                    if(year == "사무국"){
+                        binding.frNum.text = null
+                    }else{
+                        binding.frNum.text = year + "년 " + "제" + num + "호"
+                    }
+
                     binding.frSector1.text = field
                     binding.frSector2.text = occupation
 

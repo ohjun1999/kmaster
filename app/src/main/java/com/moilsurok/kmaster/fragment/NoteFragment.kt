@@ -468,7 +468,7 @@ class NoteFragment : Fragment() {
                         .startAfter(lastVisible)
                         .limit(7)
 
-                binding.noteRecyclerView.addOnScrollListener(object :
+                noteRecyclerView.addOnScrollListener(object :
                     RecyclerView.OnScrollListener() {
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)

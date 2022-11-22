@@ -79,7 +79,8 @@ class NoteYearFragment : Fragment() {
                             .limit(15)
 
                     Log.d("test123", lastVisible.toString())
-                    binding.noteYearRecyclerView.addOnScrollListener(object :
+
+                    noteYearRecyclerView.addOnScrollListener(object :
                         RecyclerView.OnScrollListener() {
                         override fun onScrolled(
                             recyclerView: RecyclerView,

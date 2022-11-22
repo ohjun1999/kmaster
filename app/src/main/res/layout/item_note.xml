@@ -192,15 +192,11 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="30" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="13" />
+                android:layout_weight="8" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -26,6 +26,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.moilsurok.kmaster.MySharedPreferences
+import com.moilsurok.kmaster.dataClass.SectorDataClass
 import com.moilsurok.kmaster.dataClass.checkboxData
 import com.moilsurok.kmaster.fragment.NoteFragment
 import com.moilsurok.kmaster.fragment.NoteYearFragment
@@ -64,7 +65,14 @@ class NoteActivity : AppCompatActivity() {
         db = Firebase.firestore
         auth = Firebase.auth
 
-        binding.btn1.isChecked = true
+
+        binding.goSearch.setOnClickListener {
+            val noteFragmentSearch: NoteFragment =
+                supportFragmentManager.findFragmentById(R.id.noteFrame) as NoteFragment
+            noteFragmentSearch.doSomething("사무국")
+            binding.layout.closeDrawer((GravityCompat.END))
+
+        }
 
         olcYearRecyclerView = binding.olcYearRecyclerView
         olcSectorRecyclerView = binding.olcSectorRecyclerView
@@ -80,20 +88,20 @@ class NoteActivity : AppCompatActivity() {
             .replace(R.id.noteFrame, NoteFragment())
             .commit()
 
-        binding.btn1.setOnSingleClickListener {
-
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.noteFrame, NoteFragment())
-                .commit()
-        }
-
-        binding.btn2.setOnSingleClickListener {
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.noteFrame, NoteYearFragment())
-                .commit()
-        }
+//        binding.btn1.setOnSingleClickListener {
+//
+//
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.noteFrame, NoteFragment())
+//                .commit()
+//        }
+//
+//        binding.btn2.setOnSingleClickListener {
+//
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.noteFrame, NoteYearFragment())
+//                .commit()
+//        }
 //      \
         binding.getYear.setOnClickListener {
             binding.layout.openDrawer((GravityCompat.END))
@@ -103,7 +111,6 @@ class NoteActivity : AppCompatActivity() {
         val firstYearNum = MySharedPreferences.getFirstYear(this)
         val endYearNum = MySharedPreferences.getEndYear(this)
         var olcYearList = arrayListOf<String>(
-            "사무국"
         )
 
         for (i in firstYearNum.toInt()..endYearNum.toInt()) {
@@ -121,47 +128,25 @@ class NoteActivity : AppCompatActivity() {
         val olcYearAdapter = OlcYearAdapter(this, olcYearList)
         olcYearRecyclerView.adapter = olcYearAdapter
         olcYearRecyclerView.layoutManager =
-            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)//
 
-        var olcSectorList = arrayListOf(
+        var olcSectorList = arrayListOf<SectorDataClass>()
+        db
+            .collection("Field")
+            .orderBy("name", Query.Direction.ASCENDING)
+            .get().addOnSuccessListener { result ->
+                for (document in result) {
 
-            "금속재료",
-            "기계가공",
-            "전자",
-            "건축",
-            "전기",
-            "공예",
-            "패션",
-            "산업안전",
-            "폐지",
-            "화학물 및 화학공정관리",
-            "섬유제조",
-            "금형",
-            "통신기술",
-            "기계조립·관리정비",
-            "산업환경",
-            "소재개발",
-            "디자인",
-            "제과.제빵",
-            "조리",
-            "해양자원",
-            "이,미용",
-            "선박·항공",
-            "농업",
-            "품질관리",
-            "기계설계",
-            "정보기술",
-            "에너지.자원",
-            "식품가공",
-            "인쇄.출판",
-            "차량철도",
+                    var item = document.toObject(SectorDataClass::class.java)
 
+                    olcSectorList.add(item)
 
-            )
-        val olcSectorAdapter = OlcSectorAdapter(this, olcSectorList)
-        olcSectorRecyclerView.adapter = olcSectorAdapter
-        olcSectorRecyclerView.layoutManager =
-            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+                }
+                val olcSectorAdapter = OlcSectorAdapter(this, olcSectorList)
+                olcSectorRecyclerView.adapter = olcSectorAdapter
+                olcSectorRecyclerView.layoutManager =
+                    LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+            }
 
 //        binding.noteBtn1.setOnClickListener {
 //
@@ -212,8 +197,8 @@ class NoteActivity : AppCompatActivity() {
             var viewHolder = (holder as OlcYearAdapter.ViewHolder).itemView
             val olcYear = olcYearList[position]
 
-            if (olcYear == "교수진") {
-                holder.olcYear.text = "교수진"
+            if (olcYear == "사무국") {
+                holder.olcYear.text = "사무국"
             } else {
                 holder.olcYear.text = olcYear
             }
@@ -222,16 +207,10 @@ class NoteActivity : AppCompatActivity() {
 
             holder.itemView.setOnClickListener {
 
-
-                if (binding.btn1.isChecked) {
-                    val noteFragmentSearch: NoteFragment =
-                        supportFragmentManager.findFragmentById(R.id.noteFrame) as NoteFragment
-                    noteFragmentSearch.doSomething(olcYear)
-                    binding.layout.closeDrawer((GravityCompat.END))
-                } else {
-                    hoo()
-                }
-                Toast.makeText(context, olcYear.toString(), Toast.LENGTH_SHORT).show()
+                val noteFragmentSearch: NoteFragment =
+                    supportFragmentManager.findFragmentById(R.id.noteFrame) as NoteFragment
+                noteFragmentSearch.doSomething(olcYear)
+                binding.layout.closeDrawer((GravityCompat.END))
 
             }
 
@@ -253,7 +232,7 @@ class NoteActivity : AppCompatActivity() {
 
     inner class OlcSectorAdapter(
         val context: Context,
-        val olcSectorList: ArrayList<String>,
+        val olcSectorList: ArrayList<SectorDataClass>,
 
         ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var firestore: FirebaseFirestore? = null
@@ -275,22 +254,18 @@ class NoteActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             var viewHolder = (holder as OlcSectorAdapter.ViewHolder).itemView
             val olcSector = olcSectorList[position]
-            holder.olcSector.text = olcSector
+            holder.olcSector.text = olcSector.name
 
 
 
             holder.itemView.setOnClickListener {
 
 
-                if (binding.btn1.isChecked) {
-                    val noteFragmentSearch: NoteFragment =
-                        supportFragmentManager.findFragmentById(R.id.noteFrame) as NoteFragment
-                    noteFragmentSearch.doSector(olcSector)
-                    binding.layout.closeDrawer((GravityCompat.END))
-                } else {
-                    hoo()
-                }
-                Toast.makeText(context, olcSector.toString(), Toast.LENGTH_SHORT).show()
+                val noteFragmentSearch: NoteFragment =
+                    supportFragmentManager.findFragmentById(R.id.noteFrame) as NoteFragment
+                noteFragmentSearch.doSector(olcSector.name.toString())
+                binding.layout.closeDrawer((GravityCompat.END))
+
 
             }
 

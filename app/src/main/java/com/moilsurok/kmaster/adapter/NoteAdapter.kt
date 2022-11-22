@@ -58,8 +58,14 @@ class NoteAdapter(
 
 
         holder.name.text = user.name
-        holder.year.text = user.year + "년"
-        holder.num.text = "제" + user.num + "호"
+        if (user.year == "사무국"){
+            holder.year.text = user.year
+            holder.num.text = null
+        }else{
+            holder.year.text = user.year + "년"
+            holder.num.text = "제" + user.num + "호"
+        }
+
         holder.sector.text = user.occupation
 
         if (user.phoneNum!!.isEmpty()) {
@@ -80,7 +86,7 @@ class NoteAdapter(
 //        }
         if (user.files == null) {
             Glide.with(holder.itemView)
-                .load("https://firebasestorage.googleapis.com/v0/b/korea-master-firebase.appspot.com/o/files%2Fuser%2F544bd110-ff04-4986-88f4-21c2488b35f3_%EB%AA%85%EC%9E%A5%ED%9A%8C%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=59bbf80d-dea6-4203-be59-2781d81eecd9")
+                .load("https://firebasestorage.googleapis.com/v0/b/korea-master-firebase.appspot.com/o/files%2Fuser%2F39b59978-ced5-4dd4-8e89-a7460f7bc2a7_%EB%AA%85%EC%9E%A5%ED%9A%8C%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=3f5fee96-bcb9-4dd6-a88a-9b7ce06f99bd")
                 .into(holder.noteImage)
         } else {
             Glide.with(holder.itemView)

@@ -38,6 +38,10 @@ class ExtraActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
 
 
+        if(year == "사무국"){
+            binding.text1.text = null
+        }
+        binding.exName.text = name
         binding.changeProfile.setOnClickListener {
 
             getProfileReq()
@@ -133,7 +137,7 @@ class ExtraActivity : AppCompatActivity() {
         }
 
 //        binding.exYear.text = year
-        binding.exName.text = name
+
     }
 
     private fun getProfileReq() {

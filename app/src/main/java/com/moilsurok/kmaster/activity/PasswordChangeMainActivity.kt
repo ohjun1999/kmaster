@@ -99,14 +99,8 @@ class PasswordChangeMainActivity : AppCompatActivity() {
                     setEditText(binding.etPasscode3, binding.etPasscode4, strCurrentValue)
                 }
                 binding.etPasscode4.isFocused -> {
-                    setEditText(binding.etPasscode4, binding.etPasscode5, strCurrentValue)
-                }
-                binding.etPasscode5.isFocused -> {
-                    setEditText(binding.etPasscode5, binding.etPasscode6, strCurrentValue)
-                }
-                binding.etPasscode6.isFocused -> {
-                    setEditText(binding.etPasscode6, binding.etPasscode7, strCurrentValue)
-                    if (binding.etPasscode1.text.isNullOrBlank() || binding.etPasscode2.text.isNullOrBlank() || binding.etPasscode3.text.isNullOrBlank() || binding.etPasscode4.text.isNullOrBlank() || binding.etPasscode5.text.isNullOrBlank() || binding.etPasscode6.text.isNullOrBlank()) {
+                    setEditText(binding.etPasscode4, binding.etPasscode7, strCurrentValue)
+                    if (binding.etPasscode1.text.isNullOrBlank() || binding.etPasscode2.text.isNullOrBlank() || binding.etPasscode3.text.isNullOrBlank() || binding.etPasscode4.text.isNullOrBlank() ) {
                         Toast.makeText(this, "모든 비밀번호가 입력 되지 않았습니다.", Toast.LENGTH_SHORT).show()
 
                     } else {
@@ -122,30 +116,15 @@ class PasswordChangeMainActivity : AppCompatActivity() {
                     binding.etPasscode2.inputType = 0
                     binding.etPasscode3.inputType = 0
                     binding.etPasscode4.inputType = 0
-                    binding.etPasscode5.inputType = 0
-                    binding.etPasscode6.inputType = 0
                     binding.etPasscode7.inputType = 0
                 }
             }
 
         }
-        if (binding.etPasscode6.text.isEmpty() && binding.etPasscode5.text.isEmpty() && binding.etPasscode4.text.isEmpty() && binding.etPasscode3.text.isEmpty() && binding.etPasscode2.text.isEmpty() && binding.etPasscode1.text.isEmpty()) {
+        if (binding.etPasscode4.text.isEmpty() && binding.etPasscode3.text.isEmpty() && binding.etPasscode2.text.isEmpty() && binding.etPasscode1.text.isEmpty()) {
             inputType(intent.getIntExtra("type", 0))
         }
 
-        if (binding.etPasscode6.text.isNullOrBlank()) {
-            binding.et6.visibility = View.GONE
-
-        } else {
-            binding.et6.visibility = View.VISIBLE
-        }
-        if (binding.etPasscode5.text.isNullOrBlank()) {
-            binding.et5.visibility = View.GONE
-
-        }
-        else{
-            binding.et5.visibility = View.VISIBLE
-        }
         if (binding.etPasscode4.text.isNullOrBlank()) {
             binding.et4.visibility = View.GONE
 
@@ -182,14 +161,12 @@ class PasswordChangeMainActivity : AppCompatActivity() {
         binding.etPasscode2.setText("")
         binding.etPasscode3.setText("")
         binding.etPasscode4.setText("")
-        binding.etPasscode5.setText("")
-        binding.etPasscode6.setText("")
         binding.etPasscode7.setText("")
         binding.etPasscode1.requestFocus()
     }
 
     private fun inputedPassword(): String {
-        return "${binding.etPasscode1.text}${binding.etPasscode2.text}${binding.etPasscode3.text}${binding.etPasscode4.text}${binding.etPasscode5.text}${binding.etPasscode6.text}"
+        return "${binding.etPasscode1.text}${binding.etPasscode2.text}${binding.etPasscode3.text}${binding.etPasscode4.text}"
     }
 
     private fun onDeleteKey() {
@@ -209,17 +186,10 @@ class PasswordChangeMainActivity : AppCompatActivity() {
                 binding.etPasscode3.setText("")
                 binding.etPasscode3.requestFocus()
             }
-            binding.etPasscode5.isFocused -> {
+
+            binding.etPasscode7.isFocused -> {
                 binding.etPasscode4.setText("")
                 binding.etPasscode4.requestFocus()
-            }
-            binding.etPasscode6.isFocused -> {
-                binding.etPasscode5.setText("")
-                binding.etPasscode5.requestFocus()
-            }
-            binding.etPasscode7.isFocused -> {
-                binding.etPasscode6.setText("")
-                binding.etPasscode6.requestFocus()
             }
         }
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -23,7 +24,9 @@ import com.moilsurok.kmaster.R
 import com.moilsurok.kmaster.adapter.MainNoticeAdapter
 import com.moilsurok.kmaster.adapter.ViewPagerAdapter
 import com.moilsurok.kmaster.dataClass.EventDataClass
+import com.moilsurok.kmaster.dataClass.InquiryDataClass
 import com.moilsurok.kmaster.dataClass.NoticeDataClass
+import com.moilsurok.kmaster.dataClass.SectorDataClass
 import com.moilsurok.kmaster.databinding.ActivityMainBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -37,11 +40,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var db: FirebaseFirestore
     lateinit var auth: FirebaseAuth
     lateinit var mainNoticeRecyclerView: RecyclerView
-    var currentPosition=0
+    var currentPosition = 0
 
     //핸들러 설정
     //ui 변경하기
-    val handler=Handler(Looper.getMainLooper()){
+    val handler = Handler(Looper.getMainLooper()) {
 //        setPage()
         true
     }
@@ -65,10 +68,10 @@ class MainActivity : AppCompatActivity() {
         val occupation = intent.getStringExtra("occupation")
         val num = intent.getStringExtra("num")
         val id = intent.getStringExtra("id")
-        Log.d("test", name.toString())
-        Log.d("MainActivity", phoneNum.toString())
-        Log.d("MainActivity", occupation.toString())
-        Log.d("MainActivity", field.toString())
+//        Log.d("test", name.toString())
+//        Log.d("MainActivity", phoneNum.toString())
+//        Log.d("MainActivity", occupation.toString())
+//        Log.d("MainActivity", field.toString())
 
 
         // 접근 가능
@@ -83,16 +86,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("year", year)
             intent.putExtra("phoneNum", phoneNum)
             intent.putExtra("email", email)
-            intent.putExtra("id",id)
-            intent.putExtra("field",field)
-            intent.putExtra("occupation",occupation)
-            intent.putExtra("num",num)
+            intent.putExtra("id", id)
+            intent.putExtra("field", field)
+            intent.putExtra("occupation", occupation)
+            intent.putExtra("num", num)
             startActivity(intent)
         }
         binding.goNote.setOnClickListener {
             val intent = Intent(this, NoteActivity::class.java)
-            intent.putExtra("id",id)
-            intent.putExtra("bookMark",bookMark)
+            intent.putExtra("id", id)
+            intent.putExtra("bookMark", bookMark)
             intent.putExtra("phoneNum", phoneNum)
             startActivity(intent)
         }
@@ -104,9 +107,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NoticeActivity::class.java)
             startActivity(intent)
         }
+        var deEvent: ArrayList<EventDataClass> = arrayListOf()
+        val today = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM")
+        val formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatted = today.toString().format(formatter)
+        val formatted2 = today.toString().format(formatter2)
+
         binding.goDate.setOnClickListener {
             val intent = Intent(this, DateActivity::class.java)
             startActivity(intent)
+
+
+
 
         }
 //        binding.goExplain.setOnClickListener {
@@ -134,20 +147,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        var deEvent: ArrayList<EventDataClass> = arrayListOf()
-        val today = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM")
-        val formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = today.toString().format(formatter)
-        val formatted2 = today.toString().format(formatter2)
 
-        binding.todayText.text = formatted2.substring(5,7) + "월 " + formatted2.substring(8,10) + "일"
+
+        binding.todayText.text =
+            formatted2.substring(5, 7) + "월 " + formatted2.substring(8, 10) + "일"
         val first =
             db
-                
+
                 .collection("Schedule")
                 .whereGreaterThanOrEqualTo("date", formatted)
-                .whereLessThanOrEqualTo("date", formatted + "\uF7FF").orderBy("date", Query.Direction.DESCENDING).limit(1)
+                .whereLessThanOrEqualTo("date", formatted + "\uF7FF")
+                .orderBy("date", Query.Direction.DESCENDING).limit(1)
 
 
         // firebase data 불러오기
@@ -157,7 +167,6 @@ class MainActivity : AppCompatActivity() {
 
             .addSnapshotListener { querySnapshot, _ ->
                 // ArrayList 비워줌
-
 
 
                 for (snapshot in querySnapshot!!.documents) {
@@ -203,9 +212,11 @@ class MainActivity : AppCompatActivity() {
 
 
         val firstYear =
-            db.collection("User").orderBy("year", Query.Direction.ASCENDING).limit(1)
+            db.collection("User").whereNotEqualTo("year", "사무국")
+                .orderBy("year", Query.Direction.ASCENDING).limit(1)
         val endYear =
-            db.collection("User").orderBy("year", Query.Direction.DESCENDING).limit(1)
+            db.collection("User").whereNotEqualTo("year", "사무국")
+                .orderBy("year", Query.Direction.DESCENDING).limit(1)
 
 
         firstYear.get().addOnSuccessListener { result ->
@@ -230,7 +241,7 @@ class MainActivity : AppCompatActivity() {
 //        binding.banner.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
 //
 
-        val thread=Thread(PagerRunnable())
+        val thread = Thread(PagerRunnable())
         thread.start()
 //        binding.maCompany.text = company
 //        binding.banner.adapter = ViewPagerAdapter(getIdolList()) // 어댑터 생성
@@ -245,18 +256,20 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     //2초 마다 페이지 넘기기
-    inner class PagerRunnable:Runnable{
+    inner class PagerRunnable : Runnable {
         override fun run() {
-            while(true){
+            while (true) {
                 Thread.sleep(2000)
                 handler.sendEmptyMessage(0)
             }
         }
     }
+
     // 뷰 페이저에 들어갈 아이템
     private fun getIdolList(): ArrayList<Int> {
         return arrayListOf<Int>(R.drawable.ic_pmo_logo, R.drawable.ic_moil_logo)
     }
+
     override fun onBackPressed() {
         if (doubleBackToExit) {
             finishAffinity()
