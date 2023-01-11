@@ -111,7 +111,7 @@ class NoteProfileChangeActivity : AppCompatActivity() {
                         binding.frName.text = name.toString()
                         binding.frNum.text = document.getString("num")
                         binding.frPhoneNum.text =
-                            document.getString("phoneNum").toString().replace("[", "")
+                            document.get("phoneNum").toString().replace("[", "")
                                 .replace("]", "")
                         binding.frSector1.text = document.getString("field")
                         binding.frSector2.text = document.getString("occupation")
@@ -135,8 +135,7 @@ class NoteProfileChangeActivity : AppCompatActivity() {
             profileDataClass.user = id.toString()
             profileDataClass.year = year.toString()
             profileDataClass.name = binding.frName.text.toString()
-            profileDataClass.phoneNum = binding.frPhoneNum.text.toString()
-            profileDataClass.num = binding.frNum.text.toString()
+            profileDataClass.num = num.toString()
             profileDataClass.field = binding.frSector1.text.toString()
             profileDataClass.occupation = binding.frSector2.text.toString()
             db
@@ -149,6 +148,9 @@ class NoteProfileChangeActivity : AppCompatActivity() {
                     val doId = documentReference.id
                     db.collection("Profile")
                         .document(doId).update("uuid", doId)
+                    db.collection("Profile")
+                        .document(doId)
+                        .update("phoneNum", FieldValue.arrayUnion(binding.frPhoneNum.text.toString()))
                     MySharedPreferences.setUserUid(this, doId)
                 }
                 .addOnFailureListener { e ->

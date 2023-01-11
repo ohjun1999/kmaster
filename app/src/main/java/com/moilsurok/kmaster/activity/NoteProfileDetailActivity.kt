@@ -55,7 +55,29 @@ class NoteProfileDetailActivity : AppCompatActivity() {
         val field = intent.getStringExtra("field")
         val num = intent.getStringExtra("num")
         val occupation = intent.getStringExtra("occupation")
+        val theeUid = MySharedPreferences.getUid(this)
+        db
+            .collection("User").whereEqualTo("uid", theeUid)
+            .addSnapshotListener { result, _ ->
+                for (document in result!!) {
 
+                    if (document.get("bookmark") == null){
+                    }else{
+                        var bookMark: ArrayList<String> = document.get("bookmark") as ArrayList<String>
+
+
+                        if (bookMark.contains(uid)){
+                            binding.img2.visibility = View.VISIBLE
+                        }else{
+                            binding.img2.visibility = View.GONE
+                        }
+                    }
+
+
+
+
+                }
+            }
         if (files.toString() == "null") {
             Glide.with(this)
                 .load("https://firebasestorage.googleapis.com/v0/b/korea-master-firebase.appspot.com/o/files%2Fuser%2F39b59978-ced5-4dd4-8e89-a7460f7bc2a7_%EB%AA%85%EC%9E%A5%ED%9A%8C%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%86%EC%9D%8C.png?alt=media&token=3f5fee96-bcb9-4dd6-a88a-9b7ce06f99bd")
@@ -107,28 +129,22 @@ class NoteProfileDetailActivity : AppCompatActivity() {
             binding.deNum.text = "$year $num"
         }
 
-        if (check == "O") {
-
-            binding.img2.visibility = View.VISIBLE
-        } else {
-            binding.img2.visibility = View.GONE
-        }
         val theUid = MySharedPreferences.getUid(this)
         Log.d("test1", theUid)
         Log.d("test2", uid.toString())
         Log.d("test3", iduser.toString())
         binding.img1.setOnClickListener {
 
-            db.collection("User").document(uid.toString())
-                .update("bookmark", FieldValue.arrayUnion(iduser))
+            db.collection("User").document(theUid)
+                .update("bookmark", FieldValue.arrayUnion(uid))
             binding.img2.visibility = View.VISIBLE
 
 
         }
         binding.img2.setOnClickListener {
 
-            db.collection("User").document(uid.toString())
-                .update("bookmark", FieldValue.arrayRemove(iduser))
+            db.collection("User").document(theUid)
+                .update("bookmark", FieldValue.arrayRemove(uid))
             binding.img2.visibility = View.GONE
 
 

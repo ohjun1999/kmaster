@@ -64,25 +64,33 @@ class BookmarkFragment : Fragment() {
 
         var UserList = arrayListOf<UserDataClass>()
 
-
         db
-            .collection("User").whereArrayContainsAny("bookmark", listOf(theUid))
-            .limit(15)
-            .addSnapshotListener { result, _ ->
-                UserList.clear()
-                for (document in result!!) {
-                    val item = document.toObject(UserDataClass::class.java)
+            .collection("User").whereEqualTo("uid", theUid)
+            .get().addOnSuccessListener { result ->
+                for (document in result) {
+                    var bookMark: ArrayList<String> = document.get("bookmark") as ArrayList<String>
 
+                    for (i in bookMark){
+                        Log.d("test", i)
+                        db
+                            .collection("User").whereEqualTo("uid", i)
+                            .get().addOnSuccessListener { results ->
+                                for (document in results) {
 
-                    UserList.add(item)
+                                    val item = document.toObject(UserDataClass::class.java)
+                                    UserList.add(item)
+
+                                }
+                                val bookmarkAdapter = BookMarkAdapter(theUid, NoteActivity(), UserList)
+                                bookmarkRecyclerView.adapter = bookmarkAdapter
+                                bookmarkRecyclerView.layoutManager =
+                                    LinearLayoutManager(NoteActivity(), RecyclerView.VERTICAL, false)
+                            }
+
+                    }
 
 
                 }
-
-                val bookmarkAdapter = BookMarkAdapter(theUid, NoteActivity(), UserList)
-                bookmarkRecyclerView.adapter = bookmarkAdapter
-                bookmarkRecyclerView.layoutManager =
-                    LinearLayoutManager(NoteActivity(), RecyclerView.VERTICAL, false)
             }
 
 

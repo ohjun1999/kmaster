@@ -281,7 +281,7 @@ class NoteFragment : Fragment() {
                 if (result.isEmpty) {
 
 
-                }else {
+                } else {
 
 
                     var lastVisible = result.documents[result.size() - 1]
@@ -359,7 +359,6 @@ class NoteFragment : Fragment() {
 
 
                 }
-                Log.d("test1234", "test1234")
 //Adapter
                 val noteAdapter =
                     NoteAdapter(theUid, NoteActivity(), UserList)
@@ -437,89 +436,97 @@ class NoteFragment : Fragment() {
     fun getNote() {
         val theUid = MySharedPreferences.getUid(requireContext())
         var UserList = arrayListOf<UserDataClass>()
+
+
         db
             .collection("User").orderBy("year", Query.Direction.ASCENDING)
             .orderBy("num", Query.Direction.ASCENDING).limit(7)
             .get().addOnSuccessListener { result ->
-                for (document in result) {
-
-                    var item = document.toObject(UserDataClass::class.java)
+                if (result.isEmpty) {
 
 
-                    UserList.add(item)
+                }else{
+
+                    for (document in result) {
+
+                        var item = document.toObject(UserDataClass::class.java)
+
+
+                        UserList.add(item)
+
+
+                    }
+
+
+                    //Adapter
+                    var noteAdapter = NoteAdapter(theUid, NoteActivity(), UserList)
+                    noteRecyclerView.adapter = noteAdapter
+                    noteRecyclerView.layoutManager =
+                        LinearLayoutManager(NoteActivity(), RecyclerView.VERTICAL, false)
+
+
+                    var lastVisible = result.documents[result.size() - 1]
+                    var next =
+                        db
+                            .collection("User")
+                            .orderBy("year", Query.Direction.ASCENDING)
+                            .orderBy("num", Query.Direction.ASCENDING)
+                            .startAfter(lastVisible)
+                            .limit(7)
+
+                    noteRecyclerView.addOnScrollListener(object :
+                        RecyclerView.OnScrollListener() {
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                            super.onScrolled(recyclerView, dx, dy)
+
+                            val lastVisibleItemPosition =
+                                (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
+                            val itemTotalCount =
+                                recyclerView.adapter!!.itemCount - 1 // 어댑터에 등록된 아이템의 총 개수 -1
+
+                            // 스크롤이 끝에 도달했는지 확인
+                            if (lastVisibleItemPosition == itemTotalCount && result.size() > 0) {
+
+                                next
+                                    .get().addOnSuccessListener { result ->
+
+                                        // ArrayList 비워줌
+                                        for (document in result) {
+                                            val item =
+                                                document.toObject(UserDataClass::class.java)
+                                            UserList.add(item)
+
+
+                                        }
+                                        if (lastVisible != null) {
+
+
+                                            lastVisible =
+                                                result.documents[result.size() - 1]
+                                            next = db
+                                                .collection("User")
+                                                .orderBy("year", Query.Direction.ASCENDING)
+                                                .orderBy("num", Query.Direction.ASCENDING)
+                                                .startAfter(lastVisible)
+                                                .limit(7)
+                                            noteAdapter.notifyDataSetChanged()
+                                        }
+                                    }
+
+                            } else if (lastVisibleItemPosition == itemTotalCount && result.size() < 0) {
+                                lastVisible =
+                                    result.documents[result.size() - 1]
+                                Toast.makeText(
+                                    context,
+                                    "더이상 불러올 데이터가 없습니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    })
 
 
                 }
-
-
-                //Adapter
-                var noteAdapter = NoteAdapter(theUid, NoteActivity(), UserList)
-                noteRecyclerView.adapter = noteAdapter
-                noteRecyclerView.layoutManager =
-                    LinearLayoutManager(NoteActivity(), RecyclerView.VERTICAL, false)
-
-
-                var lastVisible = result.documents[result.size() - 1]
-                var next =
-                    db
-                        .collection("User")
-                        .orderBy("year", Query.Direction.ASCENDING)
-                        .orderBy("num", Query.Direction.ASCENDING)
-                        .startAfter(lastVisible)
-                        .limit(7)
-
-                noteRecyclerView.addOnScrollListener(object :
-                    RecyclerView.OnScrollListener() {
-                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        super.onScrolled(recyclerView, dx, dy)
-
-                        val lastVisibleItemPosition =
-                            (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
-                        val itemTotalCount =
-                            recyclerView.adapter!!.itemCount - 1 // 어댑터에 등록된 아이템의 총 개수 -1
-
-                        // 스크롤이 끝에 도달했는지 확인
-                        if (lastVisibleItemPosition == itemTotalCount && result.size() > 0) {
-
-                            next
-                                .get().addOnSuccessListener { result ->
-
-                                    // ArrayList 비워줌
-                                    for (document in result) {
-                                        val item =
-                                            document.toObject(UserDataClass::class.java)
-                                        UserList.add(item)
-
-
-                                    }
-                                    if (lastVisible != null) {
-
-
-                                        lastVisible =
-                                            result.documents[result.size() - 1]
-                                        next = db
-                                            .collection("User")
-                                            .orderBy("year", Query.Direction.ASCENDING)
-                                            .orderBy("num", Query.Direction.ASCENDING)
-                                            .startAfter(lastVisible)
-                                            .limit(7)
-                                        noteAdapter.notifyDataSetChanged()
-                                    }
-                                }
-
-                        } else if (lastVisibleItemPosition == itemTotalCount && result.size() < 0) {
-                            lastVisible =
-                                result.documents[result.size() - 1]
-                            Toast.makeText(
-                                context,
-                                "더이상 불러올 데이터가 없습니다.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                })
-
-
             }
     }
 

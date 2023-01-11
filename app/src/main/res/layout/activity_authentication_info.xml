@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="20"
             android:gravity="center_vertical"
-            android:text="본인인증 완료 후에도 다음페이지로 이동이 불가하다면 전화번호가 등록 되지 않은 것이므로 동창회에 연락 바랍니다."
+            android:text="본인인증 완료 후에도 다음페이지로 이동이 불가하다면 전화번호가 등록 되지 않은 것이므로 관리자에게 연락 바랍니다."
             android:textColor="@color/btnGray" />
 
 
@@ -170,7 +170,8 @@
             <EditText
                 android:id="@+id/inputPhoneNum"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:hint="전화번호"
@@ -180,12 +181,12 @@
 
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/requestAuthNum"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/master2"
                     android:text="요청"
                     android:textColor="@color/white"
@@ -194,7 +195,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/reRequestAuthNum"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/master2"
                     android:text="재요청"
                     android:textColor="@color/white"
@@ -219,7 +220,7 @@
             <EditText
                 android:id="@+id/inputAuthNum"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:hint="인증번호"
@@ -230,7 +231,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/confirmAuthNum"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/master2"
                 android:text="확인"
                 android:textColor="@color/white"
